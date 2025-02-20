@@ -1,41 +1,32 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <div ref="box" class="box"></div>
+  龙茶清欢
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { gsap } from 'gsap'
+
+// 获取 DOM 引用
+const box = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (!box.value) return
+
+  // 基础动画：移动 + 旋转
+  gsap.to(box.value, {
+    x: 200,
+    rotation: 360,
+    duration: 2,
+    ease: 'power2.out'
+  })
+})
+</script>
+
 <style scoped>
-.read-the-docs {
-  color: #888;
+.box {
+  width: 100px;
+  height: 100px;
+  background: #42b983;
 }
 </style>

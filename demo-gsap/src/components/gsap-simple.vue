@@ -1,7 +1,3 @@
-<template>
-  <div ref="box" class="box"></div>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
@@ -21,6 +17,10 @@ onMounted(() => {
   })
 })
 </script>
+
+<template>
+  <div ref="box" class="box"></div>
+</template>
 
 <style scoped>
 .box {
