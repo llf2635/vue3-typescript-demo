@@ -10,12 +10,8 @@ import {
 } from "echarts/components";
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, provide } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import CanvasEchart from "./components/CanvasEchart.vue";
-import SvgEchat from "./components/SvgEchat.vue";
 import LineChart from "./components/LineChart.vue";
 import BarChart from "./components/BarChart.vue";
-import ScatterChart from "./components/ScatterChart.vue";
 
 use([
   CanvasRenderer,

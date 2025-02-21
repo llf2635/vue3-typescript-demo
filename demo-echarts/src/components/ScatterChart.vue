@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// 散点图，示例来源 https://echarts.apache.org/examples/zh/index.html#chart-type-scatter
 // 以下内容来自 Echarts 提供的 import code generator 生成的代码，采用的是 Canavs 实现。参考 https://vue-echarts.dev/?renderer=canvas#codegen
 
 import {ref} from "vue";
