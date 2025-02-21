@@ -44,12 +44,12 @@ import type {
     DatasetComponentOption
 } from 'echarts/components';
 
-// 标签自动布局、全局过渡动画等特性
+// 按需引入特性模块。标签自动布局、全局过渡动画等特性
 import {LabelLayout, UniversalTransition} from 'echarts/features';
 // 引入 Canvas 渲染器（必须）注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
 import {CanvasRenderer} from 'echarts/renderers'
 
-// 自定义类型
+// 导出组合类型（使用 ComposeOption）
 export type EChartsOption = ComposeOption<
     | TitleComponentOption
     | TooltipComponentOption
@@ -59,9 +59,10 @@ export type EChartsOption = ComposeOption<
     | BarSeriesOption
     | PieSeriesOption
     | RadarSeriesOption
+    // 添加其他组件类型...
 >;
 
-// 注册必需的组件和渲染器
+// 注册必须的模块
 echarts.use([
     // 图表类型
     BarChart,

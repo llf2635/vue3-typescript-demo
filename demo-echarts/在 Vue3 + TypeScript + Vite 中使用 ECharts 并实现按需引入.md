@@ -18,37 +18,56 @@ npm install @types/echarts --save-dev
 // src/utils/echarts.ts
 import * as echarts from 'echarts/core'
 
-// 按需引入图表类型
-import {
-  BarChart,
-  LineChart,
-  PieChart,
-  // 添加其他需要的图表类型...
-} from 'echarts/charts'
+// 1. 按需引入图表类型
+import { BarChart, LineChart, PieChart } from 'echarts/charts'
 
-// 按需引入组件
+// 2. 按需引入组件
 import {
-  TitleComponent,
-  TooltipComponent,
-  GridComponent,
-  LegendComponent,
-  // 添加其他需要的组件...
+   TitleComponent,
+   TooltipComponent,
+   GridComponent,
+   LegendComponent,
+   // 新增 DataZoom 组件示例
+   DataZoomComponent
 } from 'echarts/components'
 
-// 引入 Canvas 渲染器（必须）
+// 3. 按需引入特性模块（官方文档提到的关键部分）
+import { LabelLayout, UniversalTransition } from 'echarts/features'
+
+// 4. 引入渲染器
 import { CanvasRenderer } from 'echarts/renderers'
 
-// 注册必需的组件和渲染器
+// 5. 组合类型（关键类型安全配置）
+import type {
+   BarSeriesOption,
+   LineSeriesOption,
+   TitleComponentOption,
+   GridComponentOption
+} from 'echarts/components'
+
+// 注册必须的模块
 echarts.use([
-  BarChart,
-  LineChart,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  GridComponent,
-  LegendComponent,
-  CanvasRenderer,
+   BarChart,
+   LineChart,
+   PieChart,
+   TitleComponent,
+   TooltipComponent,
+   GridComponent,
+   LegendComponent,
+   DataZoomComponent,
+   LabelLayout,       // 标签布局特性
+   UniversalTransition, // 通用过渡动画
+   CanvasRenderer
 ])
+
+// 6. 导出组合类型（使用 ComposeOption）
+export type EChartsOption = echarts.ComposeOption<
+        | BarSeriesOption
+        | LineSeriesOption
+        | TitleComponentOption
+        | GridComponentOption
+        // 添加其他组件类型...
+>
 
 export default echarts
 ```
@@ -74,45 +93,58 @@ export default defineConfig({
 #### 1. 创建 `src/components/Chart.vue`
 ```vue
 <template>
-  <VChart class="chart" :option="option" autoresize />
+   <VChart class="chart" :option="option" autoresize />
 </template>
 
 <script setup lang="ts">
-import { VChart } from 'vue-echarts'
-import { ref } from 'vue'
-import echarts from '@/utils/echarts' // 导入按需配置后的 echarts
+   import { VChart } from 'vue-echarts'
+   import { ref } from 'vue'
+   import echarts, { EChartsOption } from '@/utils/echarts'
 
-// 定义图表配置项（TypeScript 类型推断）
-const option = ref<echarts.EChartsOption>({
-  title: {
-    text: '示例图表',
-  },
-  tooltip: {},
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  },
-  yAxis: {
-    type: 'value',
-  },
-  series: [
-    {
-      type: 'bar', // 对应已注册的 BarChart
-      data: [120, 200, 150, 80, 70, 110, 130],
-    },
-    {
-      type: 'line', // 对应已注册的 LineChart
-      data: [80, 150, 100, 200, 90, 160, 180],
-    },
-  ],
-})
+   // 使用精确的类型定义
+   const option = ref<EChartsOption>({
+      title: {
+         text: '增强型图表',
+         left: 'center'
+      },
+      tooltip: {
+         trigger: 'axis'
+      },
+      xAxis: {
+         type: 'category',
+         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+         type: 'value'
+      },
+      series: [
+         {
+            type: 'bar',
+            data: [120, 200, 150, 80, 70, 110, 130],
+            // 触发标签布局优化
+            label: {
+               show: true,
+               position: 'top'
+            },
+            // 触发 UniversalTransition
+            universalTransition: true
+         } as echarts.BarSeriesOption,
+         {
+            type: 'line',
+            data: [80, 150, 100, 200, 90, 160, 180],
+            universalTransition: true
+         } as echarts.LineSeriesOption
+      ],
+      // 使用 DataZoom 组件
+      dataZoom: [
+         {
+            type: 'slider',
+            show: true,
+            xAxisIndex: 0
+         }
+      ]
+   })
 </script>
-
-<style scoped>
-.chart {
-  height: 400px;
-}
-</style>
 ```
 
 ---
