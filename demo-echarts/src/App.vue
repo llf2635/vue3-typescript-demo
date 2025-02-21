@@ -1,8 +1,3 @@
-<template>
-  <v-chart class="chart" :option="option" />
-  <hello-world></hello-world>
-</template>
-
 <script setup lang="ts">
 // 以下内容参考 ECharts 在TypeScript中按需引入  https://echarts.apache.org/handbook/zh/basics/import#%E5%9C%A8-typescript-%E4%B8%AD%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5
 import { use } from "echarts/core";
@@ -16,6 +11,11 @@ import {
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, provide } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
+import CanvasEchart from "./components/CanvasEchart.vue";
+import SvgEchat from "./components/SvgEchat.vue";
+import LineChart from "./components/LineChart.vue";
+import BarChart from "./components/BarChart.vue";
+import ScatterChart from "./components/ScatterChart.vue";
 
 use([
   CanvasRenderer,
@@ -66,6 +66,13 @@ const option = ref({
   ]
 });
 </script>
+
+<template>
+  <v-chart class="chart" :option="option" />
+  <line-chart></line-chart>
+  <bar-chart></bar-chart>
+<!--  <scatter-chart></scatter-chart>-->
+</template>
 
 <style scoped>
 .chart {
