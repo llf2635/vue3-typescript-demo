@@ -25,7 +25,9 @@ export default defineConfig({
                     preset: 'default',
                 }),
 
-                // postcss-preset-env 插件内包含 autoprefixer ，因此无需再额外添加该依赖，参考 https://www.npmjs.com/package/postcss-preset-env
+                // postcss-preset-env 插件配置参考 https://www.npmjs.com/package/postcss-preset-env
+                // postcss-preset-env 插件内包含 autoprefixer ，因此无需再额外添加该依赖
+                // 原文来自 https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#autoprefixer
                 postcssPresetEnv({
                     /* 使用 Stage 3 特性 + CSS 嵌套规则 */
                     stage: 3,
