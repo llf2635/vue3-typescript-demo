@@ -13,16 +13,18 @@ export default defineConfig({
     ],
     css: {
         // 配置 PostCSS 选项，采用内嵌配置的方式，无需创建 postcss.config.js 两者效果相同
+        // Vite 配置 PostCSS 官方说明 https://cn.vite.dev/config/shared-options.html#css-postcss
+        // PostCSS 官方文档 https://github.com/postcss/postcss
         postcss: {
+            // 配置 PostCSS 插件，包括 postcss-preset-env 和 cssnano。
+            // autoprefixer 用于自动添加浏览器前缀，cssnano 用于压缩 CSS。
             plugins: [
+                // cssnano 插件的配置选项为 preset 配置，默认为 default。
                 // cssnano 压缩，参考 https://cssnano.github.io/cssnano/
                 cssnano({
                     preset: 'default',
                 }),
-                // 配置 PostCSS 插件，包括 autoprefixer 和 cssnano。
-                // autoprefixer 用于自动添加浏览器前缀，cssnano 用于压缩 CSS。
-                // autoprefixer 插件的配置选项为 browserslist 配置，默认为 last 2 versions。
-                // cssnano 插件的配置选项为 preset 配置，默认为 default。
+
                 // postcss-preset-env 插件内包含 autoprefixer ，因此无需再额外添加该依赖，参考 https://www.npmjs.com/package/postcss-preset-env
                 postcssPresetEnv({
                     /* 使用 Stage 3 特性 + CSS 嵌套规则 */
@@ -48,5 +50,17 @@ export default defineConfig({
                 // ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
             ],
         },
+    },
+    // 配置构建选项
+    build: {
+        // 配置 css 代码压缩
+        cssMinify: 'lightningcss',
+        // 配置 js 代码压缩
+        minify: 'esbuild',
+        // 配置 js 代码压缩
+        // minify: 'terser',
+        // 配置 js 代码压缩
+        // minify: 'chalk',
     }
+
 })

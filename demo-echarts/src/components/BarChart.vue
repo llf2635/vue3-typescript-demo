@@ -4,7 +4,7 @@
 
 import {ref} from "vue";
 import VChart from "vue-echarts";
-import echarts, { EChartsOption } from '..//utils/echarts' // 导入按需配置后的 echarts
+import { EChartsOption } from '..//utils/echarts' // 导入按需配置后的 echarts
 
 
 const builderJson = {

@@ -1,0 +1,132 @@
+npm 下载排行榜		https://npmrank.net/
+前端技术流行度调查统计网址		https://bestofjs.org/		https://risingstars.js.org/2024/zh
+
+https://www.shadcn-ui.cn/
+https://gitcode.com/gh_mirrors/ex/excalidraw-cn
+yay -S affine			https://affine.pro/
+
+
+npm install -g bun						https://bun.net.cn/
+
+
+https://cn.vite.dev/
+vite 生态相关插件集合	https://github.com/vitejs/awesome-vite#plugins
+
+
+
+bun add vue-router@4				https://router.vuejs.org/zh/
+bun add -D unplugin-vue-router		https://uvr.esm.is/
+npm i -D vite-ssg vue-router @unhead/vue					https://github.com/antfu-collective/vite-ssg
+
+bun add pinia						https://pinia.vuejs.org/zh/
+npm i pinia-plugin-persistedstate									https://www.npmjs.com/package/pinia-plugin-persistedstate
+
+bun add element-plus				https://element-plus.org/zh-CN/
+bun add ant-design-vue@4.x			https://www.antdv.com/components/overview-cn
+bun add  -D naive-ui					https://www.naiveui.com/zh-CN/light
+
+
+npm install sass -D
+bun add axios									https://www.axios-http.cn/
+
+bun add -D @biomejs/biome			https://biomejs.dev/zh-cn/
+bun add postcss postcss-preset-env cssnano -D				https://github.com/postcss/postcss#usage
+
+bun add -D unocss					https://unocss.net/
+npm i @vueuse/core					https://vueuse.org.cn/
+yarn add @vueuse/motion			https://motion.vueuse.org/
+bun add -D vitest						https://cn.vitest.dev/?from=home-page.cn
+bun create slidev						https://cn.sli.dev/
+
+bun add -D unplugin-icons					https://github.com/unplugin/unplugin-icons
+bun add  -D unplugin-vue-components 			https://www.npmjs.com/package/unplugin-vue-components
+bun add  -D unplugin-auto-import				https://www.npmjs.com/package/unplugin-auto-import
+
+bun add -D vue-i18n@10 						https://vue-i18n.intlify.dev/				
+bun add -D @intlify/unplugin-vue-i18n			https://www.npmjs.com/package/@intlify/unplugin-vue-i18n
+
+bun add -D vitepress					https://vitepress.dev/zh/guide/getting-started
+
+bun add vue3-slide-verify						https://gitee.com/monoplasty/vue3-slide-verify
+npm i uuid						https://www.npmjs.com/package/uuid
+npm i qrcode						https://qrcode.nodejs.cn/
+
+
+yarn add gsap				https://gsap.com/
+bun add echarts				https://echarts.apache.org/handbook/zh/basics/import
+bun add vue-echarts			https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md
+
+npm i vite-plugin-vue-inspector         https://www.npmjs.com/package/vite-plugin-vue-inspector
+
+
+npm install scrollreveal --save			https://scrollrevealjs.org/guide/installation.html
+npm i screenfull				https://www.npmjs.com/package/screenfull
+npm i nprogress				https://www.npmjs.com/package/nprogress
+npm i lodash-es
+yarn add dayjs						https://dayjs.fenxianglu.cn/
+
+
+
+
+
+
+
+
+
+
+	"dependencies": {
+		"@element-plus/icons-vue": "2.3.1",
+		"@wangeditor/editor": "5.1.23",
+		"@wangeditor/editor-for-vue": "5.1.12",
+		"autoprefixer": "10.4.20",
+		"axios": "1.7.8",
+		"china-area-data": "^5.0.1",
+		"codemirror": "5.65.18",
+		"crypto-js": "4.2.0",
+		"driver.js": "1.3.1",
+		"echarts": "5.5.1",
+		"element-plus": "2.8.7",
+		"js-cookie": "3.0.5",
+		"mitt": "3.0.1",
+		"nprogress": "0.2.0",
+		"pinia": "2.2.6",
+		"postcss": "8.4.49",
+		"qs": "6.13.0",
+		"screenfull": "6.0.2",
+		"sm-crypto": "0.3.13",
+		"sortablejs": "1.15.3",
+		"splitpanes": "3.1.5",
+		"tailwindcss": "3.4.14",
+		"vue": "3.5.13",
+		"vue-clipboard3": "2.0.0",
+		"vue-echarts": "7.0.3",
+		"vue-i18n": "9.14.2",
+		"vue-router": "4.4.5",
+		"vuedraggable": "4.1.0"
+	},
+	"devDependencies": {
+		"@swc/core": "1.6.13",
+		"@types/node": "20.0.0",
+		"@types/nprogress": "0.2.3",
+		"@types/sortablejs": "1.15.8",
+		"@typescript-eslint/eslint-plugin": "8.17.0",
+		"@typescript-eslint/parser": "8.17.0",
+		"@vitejs/plugin-vue": "5.2.1",
+		"@vue/compiler-sfc": "3.5.13",
+		"consola": "3.2.3",
+		"cross-env": "7.0.3",
+		"eslint": "9.14.0",
+		"eslint-plugin-vue": "9.30.0",
+		"glob": "9.3.5",
+		"pinia-plugin-persist": "1.0.0",
+		"prettier": "3.3.3",
+		"sass": "1.58.3",
+		"terser": "5.36.0",
+		"typescript": "5.6.3",
+		"vite": "5.4.11",
+		"vite-plugin-compression": "0.5.1",
+		"vite-plugin-top-level-await": "1.4.4",
+		"unplugin-auto-import": "0.18.6",
+		"unplugin-vue-setup-extend-plus": "1.0.1",
+		"vue-eslint-parser": "9.4.3"
+	},

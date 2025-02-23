@@ -2,115 +2,118 @@
 // 折线图，示例来源 https://echarts.apache.org/examples/zh/index.html#chart-type-line
 // 以下内容来自 Echarts 提供的 import code generator 生成的代码，采用的是 Canavs 实现。参考 https://vue-echarts.dev/?renderer=canvas#codegen
 
-import {ref} from "vue";
 import VChart from "vue-echarts";
-import echarts, { EChartsOption } from '..//utils/echarts' // 导入按需配置后的 echarts
+import * as echarts from 'echarts/core';
+import {LineChart} from 'echarts/charts';
+import {
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  // 数据集组件
+  DatasetComponent,
+  // 内置数据转换器组件 (filter, sort)
+  TransformComponent
+} from 'echarts/components';
+import {LabelLayout, UniversalTransition} from 'echarts/features';
+import {CanvasRenderer} from 'echarts/renderers';
+import type {
+  // 系列类型的定义后缀都为 SeriesOption
+  LineSeriesOption
+} from 'echarts/charts';
+import type {
+  // 组件类型的定义后缀都为 ComponentOption
+  TitleComponentOption,
+  TooltipComponentOption,
+  GridComponentOption,
+  DatasetComponentOption
+} from 'echarts/components';
+import type {ComposeOption,} from 'echarts/core';
 
+// 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
+type ECOption = ComposeOption<
+    | LineSeriesOption
+    | TitleComponentOption
+    | TooltipComponentOption
+    | GridComponentOption
+    | DatasetComponentOption
+>;
 
-const colors = ['#5470C6', '#EE6666'];
-// 这样我们只需要到 ECharts 仓库复制他提供的 option 到这里即可  https://echarts.apache.org/examples/zh/index.html
-// 定义图表配置项（TypeScript 类型推断）
-const option = ref<EChartsOption>(
-    {
-      color: colors,
+// 注册必须的组件
+echarts.use([
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  DatasetComponent,
+  TransformComponent,
+  LineChart,
+  LabelLayout,
+  UniversalTransition,
+  CanvasRenderer
+]);
 
-      tooltip: {
-        trigger: 'none',
-        axisPointer: {
-          type: 'cross'
-        }
-      },
-      legend: {},
-      grid: {
-        top: 70,
-        bottom: 50
-      },
-      xAxis: [
-        {
-          type: 'category',
-          axisTick: {
-            alignWithLabel: true
-          },
-          axisLine: {
-            onZero: false,
-            lineStyle: {
-              color: colors[1]
-            }
-          },
-          axisPointer: {
-            label: {
-              formatter: function (params: any) {
-                return (
-                    'Precipitation  ' +
-                    params.value +
-                    (params.seriesData.length ? '：' + params.seriesData[0].data : '')
-                );
-              }
-            }
-          },
-
-          // prettier-ignore
-          data: ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12']
-        },
-        {
-          type: 'category',
-          axisTick: {
-            alignWithLabel: true
-          },
-          axisLine: {
-            onZero: false,
-            lineStyle: {
-              color: colors[0]
-            }
-          },
-          axisPointer: {
-            label: {
-              formatter: function (params: any) {
-                return (
-                    'Precipitation  ' +
-                    params.value +
-                    (params.seriesData.length ? '：' + params.seriesData[0].data : '')
-                );
-              }
-            }
-          },
-
-          // prettier-ignore
-          data: ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11', '2015-12']
-        }
-      ],
-      yAxis: [
-        {
-          type: 'value'
-        }
-      ],
-      series: [
-        {
-          name: 'Precipitation(2015)',
-          type: 'line',
-          xAxisIndex: 1,
-          smooth: true,
-          emphasis: {
-            focus: 'series'
-          },
-          data: [
-            2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
-          ]
-        },
-        {
-          name: 'Precipitation(2016)',
-          type: 'line',
-          smooth: true,
-          emphasis: {
-            focus: 'series'
-          },
-          data: [
-            3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7
-          ]
-        }
-      ]
+const option: ECOption = {
+  title: {
+    text: 'Stacked Line'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
     }
-)
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: 'Email',
+      type: 'line',
+      stack: 'Total',
+      data: [120, 132, 101, 134, 90, 230, 210]
+    },
+    {
+      name: 'Union Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [220, 182, 191, 234, 290, 330, 310]
+    },
+    {
+      name: 'Video Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [150, 232, 201, 154, 190, 330, 410]
+    },
+    {
+      name: 'Direct',
+      type: 'line',
+      stack: 'Total',
+      data: [320, 332, 301, 334, 390, 330, 320]
+    },
+    {
+      name: 'Search Engine',
+      type: 'line',
+      stack: 'Total',
+      data: [820, 932, 901, 934, 1290, 1330, 1320]
+    }
+  ]
+}
+
 </script>
 
 <template>
@@ -120,5 +123,6 @@ const option = ref<EChartsOption>(
 <style scoped>
 .chart {
   height: 400px;
+  width: 600px;
 }
 </style>
