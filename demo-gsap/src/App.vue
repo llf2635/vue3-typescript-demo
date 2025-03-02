@@ -1,10 +1,12 @@
 <template>
   <div ref="box" class="box"></div>
+  <demo></demo>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import Demo from "./components/demo.vue";
 
 // 获取 DOM 引用
 const box = ref<HTMLElement | null>(null)
