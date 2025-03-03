@@ -8,7 +8,7 @@ export const zhCN = defineConfig({
     themeConfig: {
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
-            {text: '指南', link: '/zh/guide/index', activeMatch: '/guide/'},
+            {text: '指南', link: '/zh/guide/what-is-vitepress', activeMatch: '/guide/what-is-vitepress'},
             {text: '参考', link: '/zh/reference/index', activeMatch: '/reference/'},
             {text: '前端', link: '/frontend/'},
             {
@@ -73,9 +73,9 @@ export const zhCN = defineConfig({
                     text: '简介',
                     collapsed: false,
                     items: [
-                        {text: '什么是 VitePress？', link: '/guide/'},
-                        {text: '快速开始', link: '/guide/page-one'},
-                        {text: '路由', link: '/zh/guide/page-two'}
+                        {text: '什么是 VitePress？', link: '/guide/what-is-vitepress'},
+                        {text: '快速开始', link: '/guide/getting-started'},
+                        {text: '路由', link: '/zh/guide/routing'}
                     ]
                 },
                 {

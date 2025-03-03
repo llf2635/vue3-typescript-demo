@@ -20,10 +20,10 @@ hero:
       # 按钮的标签
       text: What is VitePress?
       # 按钮的目标链接
-      link: /en/guide/
+      link: /en/guide/what-is-vitepress
     - theme: alt
       text: Quickstart
-      link: /en/guide/page-one
+      link: /en/guide/getting-started
     - theme: alt
       text: Github
       link: https://gitee.com/llf2635

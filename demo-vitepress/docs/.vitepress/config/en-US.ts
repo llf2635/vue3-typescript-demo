@@ -8,7 +8,7 @@ export const enUS = defineConfig({
     themeConfig: {
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
-            {text: 'Guide', link: '/en/guide/', activeMatch: '/en/guide/'},
+            {text: 'Guide', link: '/en/guide/what-is-vitepress', activeMatch: '/en/guide/'},
             {text: 'Reference', link: '/en/reference/', activeMatch: '/en/reference/'},
             {text: 'Frontend', link: '/frontend/'},
             {
@@ -72,9 +72,9 @@ export const enUS = defineConfig({
                     text: 'Introduction',
                     collapsed: false,
                     items: [
-                        {text: 'What is VitePress？', link: '/en/guide/'},
-                        {text: 'Getting Started', link: '/en/guide/page-one'},
-                        {text: 'Routing', link: '/en/guide/page-two'}
+                        {text: 'What is VitePress？', link: '/en/guide/what-is-vitepress'},
+                        {text: 'Getting Started', link: '/en/guide/getting-started'},
+                        {text: 'Routing', link: '/en/guide/routing'}
                     ]
                 },
                 {
