@@ -32,30 +32,7 @@ export default defineConfig({
         lightModeSwitchTitle: "切换到浅色主题",
         darkModeSwitchTitle: "切换到深色主题"
       }
-    },
-    english: {
-      label: "English",
-      lang: "en-US",
-      description: "VitePress Sidebar is a VitePress plugin that automatically generates sidebar menus with one setup and no hassle. Save time by easily creating taxonomies for tons of articles.",
-      themeConfig: {
-        docFooter: {
-          prev: "Previous page",
-          next: "Next page"
-        },
-        outline: {
-          label: "On this page"
-        },
-        lastUpdated: {
-          text: "Last updated"
-        },
-        langMenuLabel: "Change language",
-        returnToTopLabel: "Return to top",
-        sidebarMenuLabel: "Menu",
-        darkModeSwitchLabel: "Appearance",
-        lightModeSwitchTitle: "Switch to light theme",
-        darkModeSwitchTitle: "Switch to dark theme"
-      }
-    },
+    }
   },
 
   // 站点主题
@@ -201,6 +178,6 @@ export default defineConfig({
         timeStyle: 'medium'
       },
     },
-
   }
 })
+

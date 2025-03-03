@@ -46,7 +46,7 @@ bun add -D vue-i18n@10 						https://vue-i18n.intlify.dev/
 bun add -D @intlify/unplugin-vue-i18n			https://www.npmjs.com/package/@intlify/unplugin-vue-i18n
 
 bun add -D vitepress					https://vitepress.dev/zh/guide/getting-started
-bun add -D vitepress-i18n               https://vitepress-sidebar.cdget.com/zhHans/advanced-usage/internationalization
+bun add -D vitepress-i18n               https://vitepress-i18n.cdget.com
 
 bun add vue3-slide-verify						https://gitee.com/monoplasty/vue3-slide-verify
 npm i uuid						https://www.npmjs.com/package/uuid

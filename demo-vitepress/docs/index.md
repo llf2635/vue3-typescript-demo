@@ -9,7 +9,7 @@ hero:
   tagline: 将 Markdown 变成优雅的文档，只需几分钟
   # text 和 tagline 区域旁的图片
   image:
-    src: /public/img.png
+    src: /img.png
     alt: VitePress
   # 主页 hero 部分的操作按钮
   actions:
@@ -36,7 +36,7 @@ features:
     # 按钮的目标链接
     link: https://gitee.com/llf2635
   - icon:
-      src: /public/vite.svg
+      src: /vite.svg
       width: 30px
       height: 30px
     title: 享受 Vite 无可比拟的体验
