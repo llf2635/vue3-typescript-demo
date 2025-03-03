@@ -1,8 +1,10 @@
 ---
 # 站点主页配置 https://vitepress.dev/zh/reference/default-theme-home-page
+
+# 指定页面的布局
 layout: home
 
-# 
+# 当 layout 设置为 home 时，定义主页 hero 部分的内容。
 hero:
   name: "龙茶清欢"
   text: "由 Vite 和 Vue 驱动的静态站点生成器"
@@ -25,7 +27,7 @@ hero:
     - theme: alt
       text: Github
       link: /api-examples
-# 
+# 定义当layout 设置为 home 时要在 features 部分中显示的项目。
 features:
     # 在每个 feature 框中显示图标
   - icon: 🛠️
@@ -46,17 +48,4 @@ features:
     details: 直接在 Markdown 中使用 Vue 语法和组件，或者使用 Vue 组件构建自定义主题。
   - title: 速度真的很快！
     details: 采用静态 HTML 实现快速的页面初次加载，使用客户端路由实现快速的页面切换导航。
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
-## Getting Started
-
-You can get started using VitePress right away using `npx`!
-
-```sh
-npm init
-npx vitepress init
-```
