@@ -1,33 +1,21 @@
 <template>
-  <div ref="box" class="box"></div>
-  <demo></demo>
+  <div>
+<!--    <drawer-gsap></drawer-gsap>-->
+<!--    <dropdown-gsap></dropdown-gsap>-->
+<!--    <sidebar-gsap></sidebar-gsap>-->
+
+    <flip-gsap></flip-gsap>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import Demo from "./components/demo.vue";
 
-// 获取 DOM 引用
-const box = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  if (!box.value) return
-
-  // 基础动画：移动 + 旋转
-  gsap.to(box.value, {
-    x: 200,
-    rotation: 360,
-    duration: 2,
-    ease: 'power2.out'
-  })
-})
+import DropdownGsap from "./components/DropdownGsap.vue";
+import SidebarGsap from "./components/SidebarGsap.vue";
+import DrawerGsap from "./components/DrawerGsap.vue";
+import FlipGsap from "./components/FlipGsap.vue";
 </script>
 
 <style scoped>
-.box {
-  width: 100px;
-  height: 100px;
-  background: #42b983;
-}
+
 </style>

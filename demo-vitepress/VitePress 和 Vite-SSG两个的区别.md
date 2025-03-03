@@ -25,10 +25,12 @@
 #### **4. 快速上手**
 ```bash
 # 初始化项目
-npx vitepress init
+bun vitepress init
 
 # 启动开发服务器
-npm run dev
+bun run dev
+bun run docs:dev
+bun vitepress dev docs
 ```
 
 #### **5. 配置示例**
