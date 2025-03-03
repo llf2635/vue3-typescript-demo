@@ -1,6 +1,8 @@
-# Markdown Extension Examples rf-index
+# Runtime API
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+VitePress offers several built-in APIs to let you access app data. VitePress also comes with a few built-in components that can be used globally.
+
+The helper methods are globally importable from vitepress and are typically used in custom theme Vue components. However, they are also usable inside .md pages because markdown files are compiled into Vue Single-File Components.
 
 ## Syntax Highlighting
 

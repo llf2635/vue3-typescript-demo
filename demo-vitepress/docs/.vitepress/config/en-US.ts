@@ -9,7 +9,7 @@ export const enUS = defineConfig({
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
             {text: 'Guide', link: '/en/guide/what-is-vitepress', activeMatch: '/en/guide/'},
-            {text: 'Reference', link: '/en/reference/', activeMatch: '/en/reference/'},
+            {text: 'Reference', link: '/en/reference/site-config', activeMatch: '/en/reference/'},
             {text: 'Frontend', link: '/frontend/'},
             {
                 text: 'Backend',
@@ -99,9 +99,9 @@ export const enUS = defineConfig({
 
             // 当用户位于 `reference` 目录时，会显示此侧边栏
             '/en/reference/': [
-                {text: 'Site Config',  link: '/en/reference/'},
-                {text: 'Frontmatter Config',  link: '/en/reference/reference-one'},
-                {text: 'Runtime API',  link: '/en/reference/reference-two'},
+                {text: 'Site Config',  link: '/en/reference/site-config'},
+                {text: 'Frontmatter Config',  link: '/en/reference/frontmatter-config'},
+                {text: 'Runtime API',  link: '/en/reference/runtime-api'},
                 {
                     text: 'Reference',
                     collapsed: false,

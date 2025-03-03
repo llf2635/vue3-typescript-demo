@@ -8,7 +8,8 @@ export const shared = defineConfig({
 
     // 站点标题
     title: 'VitePress',
-    // 重写规则，必须要加盖配置
+    // 路由重写，必须要加该配置用来解决默认 root 国际化会直接导航到 / 而不是 /zh/ ，而实际的路由目录是 /zh/xxx
+    // 虽然浏览器地址栏不会有 /zh 前缀， 但会自动重定向到 /zh/xxx
     rewrites: {
         'zh/:rest*': ':rest*',
     },

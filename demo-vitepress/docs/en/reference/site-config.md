@@ -1,6 +1,6 @@
-# Markdown Extension Examples rf-1
+# Site Config
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+Site config is where you can define the global settings of the site. App config options define settings that apply to every VitePress site, regardless of what theme it is using. For example, the base directory or the title of the site.
 
 ## Syntax Highlighting
 

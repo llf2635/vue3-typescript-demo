@@ -1,6 +1,6 @@
-# Markdown Extension Examples rf-index
+# frontmatter 配置
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+frontmatter 支持基于页面的配置。在每个 markdown 文件中，可以使用 frontmatter 配置来覆盖站点级别或主题级别的配置选项。此外，还有一些配置选项只能在 frontmatter 中定义。
 
 ## Syntax Highlighting
 

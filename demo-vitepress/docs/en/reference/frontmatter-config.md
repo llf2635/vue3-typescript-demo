@@ -1,6 +1,6 @@
-# Markdown Extension Examples rf-1
+# Frontmatter Config
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+Frontmatter enables page based configuration. In every markdown file, you can use frontmatter config to override site-level or theme-level config options. Also, there are config options which you can only define in frontmatter.
 
 ## Syntax Highlighting
 

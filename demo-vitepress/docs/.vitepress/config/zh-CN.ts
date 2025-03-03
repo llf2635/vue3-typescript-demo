@@ -8,8 +8,8 @@ export const zhCN = defineConfig({
     themeConfig: {
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
-            {text: '指南', link: '/zh/guide/what-is-vitepress', activeMatch: '/guide/what-is-vitepress'},
-            {text: '参考', link: '/zh/reference/index', activeMatch: '/reference/'},
+            {text: '指南', link: '/guide/what-is-vitepress'},
+            {text: '参考', link: '/reference/site-config',},
             {text: '前端', link: '/frontend/'},
             {
                 text: '后端',
@@ -100,9 +100,9 @@ export const zhCN = defineConfig({
 
             // 当用户位于 `reference` 目录时，会显示此侧边栏
             '/reference/': [
-                {text: '站点配置',  link: '/reference/'},
-                {text: 'frontmatter 配置',  link: '/reference/reference-one'},
-                {text: '运行时 API',  link: '/reference/reference-two'},
+                {text: '站点配置',  link: '/reference/site-config'},
+                {text: 'frontmatter 配置',  link: '/reference/frontmatter-config'},
+                {text: '运行时 API',  link: '/reference/runtime-api'},
                 {
                     text: '参考',
                     collapsed: false,

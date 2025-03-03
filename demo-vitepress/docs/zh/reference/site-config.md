@@ -1,6 +1,6 @@
-# Markdown Extension Examples rf-2
+# 站点配置
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+站点配置可以定义站点的全局设置。应用配置选项适用于每个 VitePress 站点，无论它使用什么主题。例如根目录或站点的标题。
 
 ## Syntax Highlighting
 
