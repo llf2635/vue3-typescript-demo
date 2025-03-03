@@ -67,14 +67,14 @@ export const zhCN = defineConfig({
         // 不是所有页面都需要侧边栏，以下指定页面会出现侧边栏，其他页面则没有
         sidebar: {
             // 当用户位于 `guide` 目录时，会显示此侧边栏
-            '/pages/zh-CN/guide/': [
+            '/zh/guide/': [
                 {
                     text: '简介',
                     collapsed: false,
                     items: [
-                        {text: '什么是 VitePress？', link: '/pages/zh-CN/guide/'},
-                        {text: '快速开始', link: '/pages/zh-CN/guide/page-one'},
-                        {text: '路由', link: '/pages/zh-CN/guide/page-two'}
+                        {text: '什么是 VitePress？', link: '/zh/guide/'},
+                        {text: '快速开始', link: '/zh/guide/page-one'},
+                        {text: '路由', link: '/zh/guide/page-two'}
                     ]
                 },
                 {
@@ -98,10 +98,10 @@ export const zhCN = defineConfig({
             ],
 
             // 当用户位于 `reference` 目录时，会显示此侧边栏
-            '/pages/zh-CN/reference/': [
-                {text: '站点配置',  link: '/pages/zh-CN/reference/'},
-                {text: 'frontmatter 配置',  link: '/pages/zh-CN/reference/reference-one'},
-                {text: '运行时 API',  link: '/pages/zh-CN/reference/reference-two'},
+            '/zh/reference/': [
+                {text: '站点配置',  link: '/zh/reference/'},
+                {text: 'frontmatter 配置',  link: '/zh/reference/reference-one'},
+                {text: '运行时 API',  link: '/zh/reference/reference-two'},
                 {
                     text: '参考',
                     collapsed: false,

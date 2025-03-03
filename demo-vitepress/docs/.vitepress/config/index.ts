@@ -8,6 +8,6 @@ export default defineConfig({
     ...shared,
     locales: {
         root: { label: '简体中文', ...zhCN },
-        english: { label: 'English', ...enUS },
+        en: { label: 'English', ...enUS },
     },
 })

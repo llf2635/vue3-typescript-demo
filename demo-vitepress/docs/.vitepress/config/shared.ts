@@ -9,10 +9,9 @@ export const shared = defineConfig({
     // 站点标题
     title: 'VitePress',
     // 重写规则
-    // rewrites: {
-    //     'pages/en-US/guide': 'en-US/guide',
-    //     'pages/zh-CN/reference': 'zh-CN/reference'
-    // },
+    rewrites: {
+        'zh/:rest*': ':rest*',
+    },
     // 最后更新时间
     lastUpdated: true,
     // 清理链接
