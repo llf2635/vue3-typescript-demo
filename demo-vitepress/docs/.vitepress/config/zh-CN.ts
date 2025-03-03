@@ -128,7 +128,7 @@ export const zhCN = defineConfig({
             text: '在 GitHub 上编辑此页面'
         },
         lastUpdated: {
-            text: "最后更新"
+            text: "最后更新",
         },
         docFooter: {
             prev: "上一页",
