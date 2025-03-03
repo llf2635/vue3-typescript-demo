@@ -75,7 +75,7 @@ export const zhCN = defineConfig({
                     items: [
                         {text: '什么是 VitePress？', link: '/guide/what-is-vitepress'},
                         {text: '快速开始', link: '/guide/getting-started'},
-                        {text: '路由', link: '/zh/guide/routing'}
+                        {text: '路由', link: '/guide/routing'}
                     ]
                 },
                 {
