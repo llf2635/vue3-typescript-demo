@@ -8,8 +8,8 @@ export const enUS = defineConfig({
     themeConfig: {
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
-            {text: 'Guide', link: '/en/guide/index', activeMatch: '/en/guide/'},
-            {text: 'Reference', link: '/en/reference/index', activeMatch: '/en/reference/'},
+            {text: 'Guide', link: '/en/guide/', activeMatch: '/en/guide/'},
+            {text: 'Reference', link: '/en/reference/', activeMatch: '/en/reference/'},
             {text: 'Frontend', link: '/frontend/'},
             {
                 text: 'Backend',

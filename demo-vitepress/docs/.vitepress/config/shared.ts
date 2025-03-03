@@ -8,7 +8,7 @@ export const shared = defineConfig({
 
     // 站点标题
     title: 'VitePress',
-    // 重写规则
+    // 重写规则，必须要加盖配置
     rewrites: {
         'zh/:rest*': ':rest*',
     },

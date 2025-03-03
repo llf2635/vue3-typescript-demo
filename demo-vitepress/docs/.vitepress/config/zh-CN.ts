@@ -8,8 +8,8 @@ export const zhCN = defineConfig({
     themeConfig: {
         // 配置首页头部导航菜单，参考 https://vitepress.dev/zh/reference/default-theme-nav
         nav: [
-            {text: '指南', link: '/pages/zh-CN/guide/index', activeMatch: '/pages/zh-CN/guide/'},
-            {text: '参考', link: '/pages/zh-CN/reference/index', activeMatch: '/pages/zh-CN/reference/'},
+            {text: '指南', link: '/zh/guide/index', activeMatch: '/guide/'},
+            {text: '参考', link: '/zh/reference/index', activeMatch: '/reference/'},
             {text: '前端', link: '/frontend/'},
             {
                 text: '后端',
@@ -65,15 +65,16 @@ export const zhCN = defineConfig({
 
         // 配置侧边栏，参考 https://vitepress.dev/zh/reference/default-theme-sidebar
         // 不是所有页面都需要侧边栏，以下指定页面会出现侧边栏，其他页面则没有
+        // 特别注意，由于 默认 root 中文国际化是不带任何前缀的，因此必须在 shared.ts 中，重写路径去掉 /zh 前缀，所以这里也不需要加 /zh
         sidebar: {
             // 当用户位于 `guide` 目录时，会显示此侧边栏
-            '/zh/guide/': [
+            '/guide/': [
                 {
                     text: '简介',
                     collapsed: false,
                     items: [
-                        {text: '什么是 VitePress？', link: '/zh/guide/'},
-                        {text: '快速开始', link: '/zh/guide/page-one'},
+                        {text: '什么是 VitePress？', link: '/guide/'},
+                        {text: '快速开始', link: '/guide/page-one'},
                         {text: '路由', link: '/zh/guide/page-two'}
                     ]
                 },
@@ -98,10 +99,10 @@ export const zhCN = defineConfig({
             ],
 
             // 当用户位于 `reference` 目录时，会显示此侧边栏
-            '/zh/reference/': [
-                {text: '站点配置',  link: '/zh/reference/'},
-                {text: 'frontmatter 配置',  link: '/zh/reference/reference-one'},
-                {text: '运行时 API',  link: '/zh/reference/reference-two'},
+            '/reference/': [
+                {text: '站点配置',  link: '/reference/'},
+                {text: 'frontmatter 配置',  link: '/reference/reference-one'},
+                {text: '运行时 API',  link: '/reference/reference-two'},
                 {
                     text: '参考',
                     collapsed: false,

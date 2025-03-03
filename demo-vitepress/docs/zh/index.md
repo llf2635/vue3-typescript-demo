@@ -20,13 +20,13 @@ hero:
       # 按钮的标签
       text: 什么是 VitePress?
       # 按钮的目标链接
-      link: /markdown-examples
+      link: /guide/
     - theme: alt
       text: 快速开始
-      link: /api-examples
+      link: /guide/page-one
     - theme: alt
       text: Github
-      link: /api-examples
+      link: https://gitee.com/llf2635
 # 定义当layout 设置为 home 时要在 features 部分中显示的项目。
 features:
     # 在每个 feature 框中显示图标
