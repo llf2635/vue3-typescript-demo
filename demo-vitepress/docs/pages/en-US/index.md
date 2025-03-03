@@ -6,7 +6,7 @@ layout: home
 
 # 当 layout 设置为 home 时，定义主页 hero 部分的内容。
 hero:
-  name: "lcqh"
+  name: "VitePress"
   text: "Vite & Vue Powered Static Site Generator"
   tagline: Markdown to Beautiful Docs in Minutes
   # text 和 tagline 区域旁的图片

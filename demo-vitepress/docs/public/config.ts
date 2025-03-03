@@ -187,7 +187,7 @@ export default defineConfig({
       ]
     },
 
-    // 配置页头社交链接
+    // 配置页头社交链接，参考 https://vitepress.dev/zh/reference/default-theme-config#sociallinks
     socialLinks: [
       {icon: 'github', link: 'https://github.com/llf2635?tab=repositories'},
       {icon: 'youtube', link: 'https://gitee.com/llf2635'},
