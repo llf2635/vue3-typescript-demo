@@ -14,8 +14,16 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.5.3",
+    "postcss-preset-env": "^10.1.5",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
 }
