@@ -11,5 +11,12 @@ export default defineConfig(({ command, mode }) => {
   return {
     // vite 配置
     plugins: [vue()],
+
+    // Bun 特定优化
+    server: {
+      watch: {
+        usePolling: true  // 建议在 Bun 中启用文件监听
+      }
+    },
   }
 })
