@@ -6,8 +6,9 @@ https://gitcode.com/gh_mirrors/ex/excalidraw-cn
 yay -S affine			https://affine.pro/
 
 
-npm install -g bun						https://bun.net.cn/
-
+sudo npm install -g bun						https://bun.net.cn/
+bun add -D @types/bun
+bun add -D @types/node
 
 https://cn.vite.dev/
 vite 生态相关插件集合	https://github.com/vitejs/awesome-vite#plugins
