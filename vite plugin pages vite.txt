@@ -14,58 +14,57 @@ vite 生态相关插件集合	https://github.com/vitejs/awesome-vite#plugins
 
 
 
-bun add vue-router@4				https://router.vuejs.org/zh/
-bun add -D unplugin-vue-router		https://uvr.esm.is/
-npm i -D vite-ssg vue-router @unhead/vue					https://github.com/antfu-collective/vite-ssg
+bun add vue-router@4				                https://router.vuejs.org/zh/
+bun add -D unplugin-vue-router		                https://uvr.esm.is/
+npm i -D vite-ssg vue-router @unhead/vue			https://github.com/antfu-collective/vite-ssg
+npm i vite-plugin-vue-inspector                     https://www.npmjs.com/package/vite-plugin-vue-inspector
 
-bun add pinia						https://pinia.vuejs.org/zh/
-npm i pinia-plugin-persistedstate									https://www.npmjs.com/package/pinia-plugin-persistedstate
+bun add pinia						            https://pinia.vuejs.org/zh/
+npm i pinia-plugin-persistedstate				https://www.npmjs.com/package/pinia-plugin-persistedstate
 
 bun add element-plus				https://element-plus.org/zh-CN/
 bun add ant-design-vue@4.x			https://www.antdv.com/components/overview-cn
-bun add  -D naive-ui					https://www.naiveui.com/zh-CN/light
+bun add  -D naive-ui				https://www.naiveui.com/zh-CN/light
 
 
 npm install sass -D
 bun add axios									https://www.axios-http.cn/
 
-bun add -D @biomejs/biome			https://biomejs.dev/zh-cn/
+bun add -D @biomejs/biome			                        https://biomejs.dev/zh-cn/
 bun add postcss postcss-preset-env cssnano -D				https://github.com/postcss/postcss#usage
+postcss-pxtorem
 
-bun add -D unocss					https://unocss.net/
-npm i @vueuse/core					https://vueuse.org.cn/
-yarn add @vueuse/motion			https://motion.vueuse.org/
-bun add -D vitest						https://cn.vitest.dev/?from=home-page.cn
-bun create slidev						https://cn.sli.dev/
+
+bun add -D unocss					        https://unocss.net/
+bun add @vueuse/core					        https://vueuse.org.cn/
+bun add @vueuse/motion			            https://motion.vueuse.org/
+bun add -D vitest						    https://cn.vitest.dev/?from=home-page.cn
+bun add -D vitepress					    https://vitepress.dev/zh/guide/getting-started
+bun create slidev						    https://cn.sli.dev/
 
 bun add -D unplugin-icons					https://github.com/unplugin/unplugin-icons
-bun add  -D unplugin-vue-components 			https://www.npmjs.com/package/unplugin-vue-components
-bun add  -D unplugin-auto-import				https://www.npmjs.com/package/unplugin-auto-import
+bun add -D unplugin-vue-components 			https://www.npmjs.com/package/unplugin-vue-components
+bun add -D unplugin-auto-import				https://www.npmjs.com/package/unplugin-auto-import
+bun add -D unplugin-vue-markdown            https://github.com/unplugin/unplugin-vue-markdown
 
-bun add -D vue-i18n@10 						https://vue-i18n.intlify.dev/				
-bun add -D @intlify/unplugin-vue-i18n			https://www.npmjs.com/package/@intlify/unplugin-vue-i18n
+bun add -D vue-i18n 						https://vue-i18n.intlify.dev/
+bun add -D @intlify/unplugin-vue-i18n	    https://www.npmjs.com/package/@intlify/unplugin-vue-i18n
 
-bun add -D vitepress					https://vitepress.dev/zh/guide/getting-started
-bun add -D vitepress-i18n               https://vitepress-i18n.cdget.com
+bun add gsap				                https://gsap.com/
+
+bun add echarts				                https://echarts.apache.org/handbook/zh/basics/import
+bun add vue-echarts			                https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md
+
+bun add scrollreveal --save			    https://scrollrevealjs.org/guide/installation.html
+bun add screenfull				            https://www.npmjs.com/package/screenfull
+bun add nprogress				                https://www.npmjs.com/package/nprogress
+bun add lodash-es
+bun add dayjs						        https://dayjs.fenxianglu.cn/
+
 
 bun add vue3-slide-verify						https://gitee.com/monoplasty/vue3-slide-verify
 npm i uuid						https://www.npmjs.com/package/uuid
 npm i qrcode						https://qrcode.nodejs.cn/
-
-
-yarn add gsap				https://gsap.com/
-bun add echarts				https://echarts.apache.org/handbook/zh/basics/import
-bun add vue-echarts			https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md
-
-npm i vite-plugin-vue-inspector         https://www.npmjs.com/package/vite-plugin-vue-inspector
-
-
-npm install scrollreveal --save			https://scrollrevealjs.org/guide/installation.html
-npm i screenfull				https://www.npmjs.com/package/screenfull
-npm i nprogress				https://www.npmjs.com/package/nprogress
-npm i lodash-es
-yarn add dayjs						https://dayjs.fenxianglu.cn/
-
 
 
 
