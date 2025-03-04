@@ -13,6 +13,8 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }): UserConf
     // 加载环境变量（根据 mode 加载对应的 .env 文件）
     // 参数说明：mode, 目录路径, 环境变量前缀（空字符串表示加载所有）
     const env = loadEnv(mode, root, '')
+    // 也可以选择只加载指定前缀的环境变量
+    //  const env = loadEnv(mode, process.cwd(), 'VITE_')
 
     // 判断环境类型
     const isDev = command === 'serve'
