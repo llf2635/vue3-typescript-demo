@@ -79,13 +79,24 @@ export default defineConfig({
 // Vite 支持的 Lightning CSS 配置内容 https://cn.vite.dev/config/shared-options#css-lightningcss
 // 参考 lightningcss 官方文档 https://lightningcss.dev/docs.html#with-vite
 // 参考 Vite 官网 https://cn.vite.dev/guide/features.html#lightning-css
+import browserslist from 'browserslist';
+import {browserslistToTargets} from "lightningcss";
+
 export default defineConfig({
+   // Vite 中集成 Lightning CSS 配置参考 https://lightningcss.dev/docs.html#with-vite
    css: {
-      // 转换CSS交给lightningcss
+      // 指定使用 Lightning CSS 处理 CSS。默认是 PostCSS。
       transformer: 'lightningcss',
+      // Lightning CSS 配置，可选配置项参考 Vite 官网 https://cn.vite.dev/config/shared-options#css-lightningcss
       lightningcss: {
          // 关于lightningcss的配置添加在这里
-         targets: browserslistToTargets(browserslist('>= 0.25%'))
+         targets: browserslistToTargets(browserslist('>= 0.25%, not dead, not ie 11')),
+         // 启用 CSS Modules（默认关闭）
+         cssModules: true,
+         // 实验性 CSS 功能草案
+         drafts: {
+            customMedia: true // @custom-media 规则
+         }
       }
    },
    build: {
