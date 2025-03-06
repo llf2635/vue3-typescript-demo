@@ -4,3 +4,10 @@ Bun 关于环境变量的注意事项 https://bun.net.cn/docs/runtime/env
 Bun 在 Bun 全局对象和一些内置模块中实现了一组原生 API。 https://bun.net.cn/docs/runtime/bun-apis
 Bun 会实现这些 Web 标准 API，   https://bun.net.cn/docs/runtime/web-apis
 Bun 旨在实现完整的 Node.js API 兼容性。    https://bun.net.cn/docs/runtime/nodejs-apis
+使用 Vite 和 Bun 构建前端      https://bun.net.cn/guides/ecosystem/vite
+
+关于 bunx 的介绍 https://bun.net.cn/docs/cli/bunx
+
+
+
+--bun 标志告诉 Bun 使用 bun 而不是 node 运行 Vite 的 CLI；默认情况下，

@@ -16,7 +16,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 如果我们使用 Web 标准 API ，例如：常见的有 console、JSON、setTimeout、setInterval等。也需要在项目根目录下安装 @types/bun
   // 即使是使用 console 打印也需要安装 @types/bun 。因为 Bun 会实现这些 Web 标准 API，参考 https://bun.net.cn/docs/runtime/web-apis
   // console.log(env)
-  // console.log(command, mode)
+  console.log(command, mode)
   // console.log(JSON.stringify({ x: 5, y: 6 }));
   // path.resolve(__dirname)
 
@@ -25,8 +25,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [
         vue(),
       consoleArt(),
-      // vitePluginVueMonitor(),
-      // consoleArtPlugin()
     ],
 
     // Bun 特定优化

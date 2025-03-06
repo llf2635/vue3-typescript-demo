@@ -32,11 +32,11 @@ interface ConsoleArtOptions {
 }
 
 export default function consoleArt(options?: ConsoleArtOptions): Plugin {
-    console.log(options)
+    console.log("插件可选配置参数：" + options)
     let viteConfig: ResolvedConfig
-    let serverInfo: ViteDevServer
     let buildStartTime: number
 
+    //
     const tips = [
         "你知道吗？按住 Alt 点击浏览器刷新可以强制清除缓存",
         "尝试 Ctrl+Shift+R 进行硬刷新",
@@ -51,6 +51,13 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
         enforce: 'post',                // 执行顺序：pre|post（影响插件执行顺序）
 
         // ==================== 生命周期钩子 ====================
+        // 1. 配置解析钩子（修改 Vite 配置）
+        config(config, env) {
+            return {
+                // 合并配置（这里示例关闭默认的 clearScreen 行为）
+                clearScreen: false
+            }
+        },
 
         // 获取最终配置，参考 Vite 官方文档 https://cn.vitejs.dev/guide/api-plugin#configresolved
         // 2. 配置解析完成钩子（获取最终配置）
@@ -60,18 +67,21 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
 
         // 配置开发服务器
         configureServer(server: ViteDevServer) {
-            serverInfo = server
             const info = server.config.logger.info
+
+            console.log("VITE_API_KEY" + process.env.VITE_API_KEY)
             if (process.env.VITE_API_KEY) {
-                info(c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！'))
+                console.log(`c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！')`)
             }
 
             // Vite 项目启动的默认启动打印函数
             const print = server.printUrls;
 
+            // 只在项目第一次启动时执行
             server.printUrls = () => {
                 // 在默认的打印之前插入自定打印内容
 
+                // 获取项目信息
                 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
                 // 使用 figlet 生成 ASCII 艺术字
@@ -108,6 +118,11 @@ ${c.dim('───────────────────────�
                 // Vite 项目启动的默认打印
                 print();
             }
+
+            // 每次热更新都会触发，但第一次启动不会触发
+            server.httpServer?.once('listening', () => {
+                console.log(`${c.dim('💡 小贴士:')} ${c.italic(c.gray(tips[Math.floor(Math.random() * tips.length)]))}`)
+            })
         },
 
         // 4. 构建开始钩子

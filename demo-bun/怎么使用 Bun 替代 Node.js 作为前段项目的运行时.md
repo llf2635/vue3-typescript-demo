@@ -27,15 +27,22 @@ bun create vite my-vue-app --template vue-ts
 ```
 
 #### **3. 修改 package.json 脚本**
+参考自：使用 Vite 和 Bun 构建前端      https://bun.net.cn/guides/ecosystem/vite
+
+--bun 标志告诉 Bun 使用 bun 而不是 node 运行 Vite 的 CLI；
+默认情况下，Bun 尊重 Vite 的 #!/usr/bin/env node shebang 行。
+也就是说，如果不使用 --bun 标志，即使我们使用 bun run dev 来运行项目，依然是用的是 nodejs 作为运行时
+也千万不要将 "dev": "bunx --bun vite", 的 dev 内容改为 bun run vite  这样也依旧是用的是 nodejs
 ```json
 {
   "scripts": {
-      "dev": "bun run vite", 
-      "build": "vue-tsc -b && bun run vite build",
-      "preview": "bun vite preview"
+     "dev": "bunx --bun vite",  
+     "build": "vue-tsc -b && bunx --bun vite build",
+     "preview": "bunx --bun vite preview"
   }
 }
 ```
+"dev": "bunx --bun vite"  # 或等效的 "bun run --bun vite"
 
 #### **4. 安装依赖**
 ```bash
