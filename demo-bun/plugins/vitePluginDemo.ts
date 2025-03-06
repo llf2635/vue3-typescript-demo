@@ -71,7 +71,7 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
 
             console.log("VITE_API_KEY" + process.env.VITE_API_KEY)
             if (process.env.VITE_API_KEY) {
-                console.log(`c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！')`)
+                console.log(c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！'))
             }
 
             // Vite 项目启动的默认启动打印函数
@@ -107,12 +107,12 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
                 const projectInfo = `
 ${c.bold('🚀 项目已启动!')}
 ${c.dim('──────────────────────────────')}
-${c.green('➜ 项目名称:')} ${pkg.name} ${c.green('➜ 版本:')} ${pkg.version}
+${c.green('➜ 项目名称:')} ${pkg.name}     ${c.green('➜ 版本:')} ${pkg.version}
 ${c.cyan('➜ 运行环境:')} ${c.yellow(viteConfig.mode)}
 ${c.cyan('➜ Vue版本:')} ${c.blue(`${pkg.dependencies.vue.replace('^', '')}`)}
 ${c.cyan('➜ TypeScript版本:')} ${c.blue(`${pkg.devDependencies.typescript.replace('~', '')}`)}
 ${c.cyan('➜ Vite版本:')} ${c.blue(`${pkg.devDependencies.vite.replace('^', '')}`)}
-${c.cyan('➜ Bun版本:')} ${c.blue(`${Bun.version}`)}
+${c.cyan('➜ Bun运行时版本:')} ${c.blue(`${Bun.version}`)}
 ${c.dim('— 按下')} ${c.cyan('h + enter')} ${c.dim('显示帮助')}
 ${c.dim('💡 小贴士:')} ${c.italic(c.gray(tips[Math.floor(Math.random() * tips.length)]))}
 ${c.dim('──────────────────────────────')}
