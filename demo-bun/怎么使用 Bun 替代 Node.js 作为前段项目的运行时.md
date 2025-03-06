@@ -15,6 +15,7 @@ Bun 是一个新兴的 JavaScript/TypeScript 运行时和工具链，旨在替�
 ```bash
 # 使用安装脚本（macOS/Linux）
 curl -fsSL https://bun.sh/install | bash
+npm install -g bun
 
 # Windows 需要通过 WSL 或使用官方 Windows 版本（如有）
 ```
@@ -54,7 +55,7 @@ bun run dev
    ```json
    {
      "compilerOptions": {
-       "types": ["bun-types"]
+       "types": ["@types/bun"]
      }
    }
    ```
@@ -70,6 +71,8 @@ bun run dev
    ```javascript
    // 使用 Node.js 模块的 Bun 实现
    import { readFileSync } from 'fs';
+   import { serve } from 'bun' // 类型来自 @types/bun
+   import path from 'path'     // 类型来自 @types/path
    ```
 
 4. **Bun 原生 API**（可选）：

@@ -1,0 +1,6 @@
+Bun 介绍和安装
+Bun 搭配 TypeScript 一起使用时的注意事项 https://bun.net.cn/docs/runtime/typescript
+Bun 关于环境变量的注意事项 https://bun.net.cn/docs/runtime/env
+Bun 在 Bun 全局对象和一些内置模块中实现了一组原生 API。 https://bun.net.cn/docs/runtime/bun-apis
+Bun 会实现这些 Web 标准 API，   https://bun.net.cn/docs/runtime/web-apis
+Bun 旨在实现完整的 Node.js API 兼容性。    https://bun.net.cn/docs/runtime/nodejs-apis

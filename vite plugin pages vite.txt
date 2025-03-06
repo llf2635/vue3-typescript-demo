@@ -6,13 +6,15 @@ https://gitcode.com/gh_mirrors/ex/excalidraw-cn
 yay -S affine			https://affine.pro/
 
 
-sudo npm install -g bun						https://bun.net.cn/
-bun add -D @types/bun
+sudo npm install -g bun						https://bun.net.cn/docs
+bun add -D @types/bun                       https://bun.net.cn/docs/docs/typescript
 bun add -D @types/node
+
+bun add figlet                      https://www.npmjs.com/package/figlet
+bun add -d @types/figlet
 
 https://cn.vite.dev/
 vite 生态相关插件集合	https://github.com/vitejs/awesome-vite#plugins
-
 
 
 bun add vue-router@4				                https://router.vuejs.org/zh/
