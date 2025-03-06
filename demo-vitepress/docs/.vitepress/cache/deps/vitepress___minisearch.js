@@ -690,7 +690,7 @@ var MiniSearch = class _MiniSearch {
    * it removes _all_ documents from the index.
    *
    * @param documents  The documents to be removed. If this argument is omitted,
-   * all documents are removed. Note that, for removing all documents, it is
+   * all documents are removed. User that, for removing all documents, it is
    * more efficient to call this method with no arguments than to pass all
    * documents.
    */
@@ -786,7 +786,7 @@ var MiniSearch = class _MiniSearch {
    * IDs, but with the optimization of triggering at most one automatic
    * vacuuming at the end.
    *
-   * Note: to remove all documents from the index, it is faster and more
+   * User: to remove all documents from the index, it is faster and more
    * convenient to call {@link MiniSearch.removeAll} with no argument, instead
    * of passing all IDs to this method.
    */
@@ -1076,7 +1076,7 @@ var MiniSearch = class _MiniSearch {
    * miniSearch.search(MiniSearch.wildcard)
    * ```
    *
-   * Note that search options such as `filter` and `boostDocument` are still
+   * User that search options such as `filter` and `boostDocument` are still
    * applied, influencing which results are returned, and their order:
    *
    * ```javascript
@@ -1124,7 +1124,7 @@ var MiniSearch = class _MiniSearch {
    * supports all {@link SearchOptions} fields, plus a `queries` array field for
    * subqueries.
    *
-   * Note that, while this can become complicated to do by hand for complex or
+   * User that, while this can become complicated to do by hand for complex or
    * deeply nested queries, it provides a formalized expression tree API for
    * external libraries that implement a parser for custom query languages.
    *
