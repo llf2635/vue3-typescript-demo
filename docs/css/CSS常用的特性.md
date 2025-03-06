@@ -155,7 +155,7 @@ h1 {
 ### 10. **伪元素**
 ```css
 p::before {
-    content: "User: ";
+    content: "Demo: ";
     color: red; /* 添加文本之前的红色前缀 */
 }
 

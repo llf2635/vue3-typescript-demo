@@ -481,7 +481,7 @@ You can create diagrams / graphs from textual descriptions, directly in your Mar
 ```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
 sequenceDiagram
     Alice->John: Hello John, how are you?
-    User over Alice,John: A typical interaction
+    Demo over Alice,John: A typical interaction
 ```
 
 ```mermaid {theme: 'neutral', scale: 0.8}
