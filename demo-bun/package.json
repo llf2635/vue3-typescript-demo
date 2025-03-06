@@ -1,8 +1,23 @@
 {
   "name": "demo-bun",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "author": {
+    "name": "龙茶清欢",
+    "email": "2320391937@qq.com"
+  },
+  "license": "MIT",
+  "description": "Demo bun",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertoachar/vue3-typescript-demo.git"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "bun"
+  ],
   "scripts": {
     "dev": "bun run vite",
     "build": "vue-tsc -b && bun run vite build",
@@ -13,8 +28,10 @@
   },
   "devDependencies": {
     "@types/bun": "^1.2.4",
+    "@types/figlet": "^1.7.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "figlet": "^1.8.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"

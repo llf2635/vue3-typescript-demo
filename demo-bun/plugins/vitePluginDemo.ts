@@ -1,9 +1,10 @@
 // Vite 默认内置了 picocolors，用于在终端中打印彩色日志、控制台 ASCII 艺术字输出等
-import c from 'picocolors';
-
 // plugins/consoleArt.ts (Bun 适配版)
 import type {Plugin, ResolvedConfig, ViteDevServer} from 'vite'
 import * as fs from "node:fs";
+import c from "picocolors";
+// bun add -D figlet @types/figlet
+import figlet from 'figlet'
 
 /**
  * 自定义控制台艺术字插件，增强 Vite 开发服务器的控制台输出
@@ -50,15 +51,6 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
         enforce: 'post',                // 执行顺序：pre|post（影响插件执行顺序）
 
         // ==================== 生命周期钩子 ====================
-        // 1. 配置解析钩子（修改 Vite 配置）
-        config(config, env) {
-            console.log(c.cyan('🔧 配置解析钩子，用户配置：'), config)
-            console.log(c.cyan('🔧 配置解析钩子，环境变量：'), env)
-            return {
-                // 合并配置（这里示例关闭默认的 clearScreen 行为）
-                clearScreen: false
-            }
-        },
 
         // 获取最终配置，参考 Vite 官方文档 https://cn.vitejs.dev/guide/api-plugin#configresolved
         // 2. 配置解析完成钩子（获取最终配置）
@@ -69,37 +61,52 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
         // 配置开发服务器
         configureServer(server: ViteDevServer) {
             serverInfo = server
-            return () => {
-                server.httpServer?.once('listening', () => {
-                    const info = server.config.logger.info
-                    if (process.env.VITE_API_KEY) {
-                        info(c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！'))
-                    }
-                    const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+            const info = server.config.logger.info
+            if (process.env.VITE_API_KEY) {
+                info(c.red('⚠️ 警告：检测到敏感环境变量 VITE_API_KEY 被前端使用！'))
+            }
 
-                    // ASCII 艺术字生成工具推荐：https://patorjk.com/software/taag
-                    const artText = `
-${c.green(`
- ██████╗ ██████╗ ████████╗██╗███╗   ██╗███████╗
-██╔═══██╗██╔══██╗╚══██╔══╝██║████╗  ██║██╔════╝
-██║   ██║██████╔╝   ██║   ██║██╔██╗ ██║█████╗
-██║   ██║██╔═══╝    ██║   ██║██║╚██╗██║██╔══╝
-╚██████╔╝██║        ██║   ██║██║ ╚████║███████╗
- ╚═════╝ ╚═╝        ╚═╝   ╚═╝╚═╝  ╚═══╝╚══════╝
-`)}
-${c.bold('🚀 项目已启动!')} ${c.dim('— 按下')} ${c.cyan('q')} ${c.dim('退出')}
+            // Vite 项目启动的默认启动打印函数
+            const print = server.printUrls;
+
+            server.printUrls = () => {
+                // 在默认的打印之前插入自定打印内容
+
+                const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+
+                // 使用 figlet 生成 ASCII 艺术字
+                const ascii = figlet.textSync(pkg.name.replace(/-/g,  ' '), {
+                    // 可选的字体参考官网 https://github.com/xero/figlet-fonts/tree/master
+                    // 或者直接去ASCII 艺术字生成工具推荐：https://patorjk.com/software/taag/#p=testall 去在线挑选
+                    font: "ANSI Shadow",
+                    horizontalLayout: 'default',
+                    verticalLayout: 'default',
+                    whitespaceBreak: true,
+                })
+                // 打印 ASCII 艺术字
+                // ASCII 艺术字生成工具推荐：https://patorjk.com/software/taag
+                console.log(c.green(ascii))
+                console.log(`${c.green('➜ 作者:')} ${pkg.author.name}            ${c.green('➜ 邮箱:')} ${pkg.author.email}`)
+
+                // 打印项目基础信息
+                const projectInfo = `
+${c.bold('🚀 项目已启动!')}
 ${c.dim('──────────────────────────────')}
 ${c.green('➜ 项目名称:')} ${pkg.name} ${c.green('➜ 版本:')} ${pkg.version}
 ${c.cyan('➜ 运行环境:')} ${c.yellow(viteConfig.mode)}
-${c.cyan('➜ Vite版本:')} ${c.blue(`v${viteConfig.env.VERSION}`)}
-${c.cyan('➜ Local:')} http://localhost:${server.config.server.port}
-${c.cyan('➜ Network:')} ${c.yellow(`http://${serverInfo.config.server.host}:${serverInfo.config.server.port}`)}
+${c.cyan('➜ Vue版本:')} ${c.blue(`${pkg.dependencies.vue.replace('^', '')}`)}
+${c.cyan('➜ TypeScript版本:')} ${c.blue(`${pkg.devDependencies.typescript.replace('~', '')}`)}
+${c.cyan('➜ Vite版本:')} ${c.blue(`${pkg.devDependencies.vite.replace('^', '')}`)}
+${c.cyan('➜ Bun版本:')} ${c.blue(`${pkg.devDependencies}`)}
+${c.dim('— 按下')} ${c.cyan('h + enter')} ${c.dim('显示帮助')}
 ${c.dim('💡 小贴士:')} ${c.italic(c.gray(tips[Math.floor(Math.random() * tips.length)]))}
+${c.dim('──────────────────────────────')}
                     `
-                    info(artText)
-                    // const blank = '\n'.repeat(1)     // 两个空行
-                    // info(blank + artText + blank)
-                })
+                const blank = '\n'.repeat(1)     // 一个空行
+                info(blank + projectInfo)
+
+                // Vite 项目启动的默认打印
+                print();
             }
         },
 

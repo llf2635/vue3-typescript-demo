@@ -11,20 +11,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 例如：使用 process 就需要安装 bun add -D @types/bun 如果是用的是 nodejs 则是 @types/node
   // 当我们使用一些 nodejs 的 API 时，例如：process、path、require() 等，也需要安装 @types/bun ，因为 Bun 旨在实现完整的 Node.js API 兼容性。
   const env = loadEnv(mode, process.cwd(), '');
-  const { VITE_VERSION, VITE_PORT, VITE_BASE_URL, VITE_API_URL } = env;
-  console.log(`🚀 API_URL = ${VITE_API_URL}`);
-  console.log(`🚀 BASE_URL = ${VITE_BASE_URL}`);
-  console.log(`🚀 PORT = ${VITE_PORT}`, VITE_PORT);
-  console.log(`🚀 VERSION = ${VITE_VERSION}`);
-
-  console.log("🚀 项目名称 = " + process.env.npm_package_name);
-  console.log("🚀 版本号 = " + process.env.npm_package_version);
+  // const { VITE_VERSION, VITE_PORT, VITE_BASE_URL, VITE_API_URL } = env;
 
   // 如果我们使用 Web 标准 API ，例如：常见的有 console、JSON、setTimeout、setInterval等。也需要在项目根目录下安装 @types/bun
   // 即使是使用 console 打印也需要安装 @types/bun 。因为 Bun 会实现这些 Web 标准 API，参考 https://bun.net.cn/docs/runtime/web-apis
-  console.log(env)
-  console.log(command, mode)
-  console.log(JSON.stringify({ x: 5, y: 6 }));
+  // console.log(env)
+  // console.log(command, mode)
+  // console.log(JSON.stringify({ x: 5, y: 6 }));
   // path.resolve(__dirname)
 
   return {
@@ -48,7 +41,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       // 为开发服务器配置 CORS,默认启用并允许任何源
       cors: true,
       // 开发服务器启动时，自动在浏览器中打开应用程序
-      open: true,
+      open: false,
       // 热更新
       hmr: true,
       // 为开发服务器配置自定义代理规则，代理所有从vite发出的url中带/api的请求
