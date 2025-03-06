@@ -42,7 +42,9 @@ bun create vite my-vue-app --template vue-ts
   }
 }
 ```
-"dev": "bunx --bun vite"  # 或等效的 "bun run --bun vite"
+"dev": "bunx --bun vite"  # 或等效的 "dev": "bun run --bun vite"
+值得注意的是，当我们在控制台使用 bun run dev 启动项目时，就相当于是执行了 bun run --bun vite 
+并且，使用 Bun 作为运行时启动的项目的控制台输出风格和 Nodejs 不一样。同时，我们打印 console.log(Bun.version) 也不会报错了
 
 #### **4. 安装依赖**
 ```bash

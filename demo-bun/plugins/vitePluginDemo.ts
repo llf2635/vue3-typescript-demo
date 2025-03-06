@@ -107,7 +107,7 @@ ${c.cyan('➜ 运行环境:')} ${c.yellow(viteConfig.mode)}
 ${c.cyan('➜ Vue版本:')} ${c.blue(`${pkg.dependencies.vue.replace('^', '')}`)}
 ${c.cyan('➜ TypeScript版本:')} ${c.blue(`${pkg.devDependencies.typescript.replace('~', '')}`)}
 ${c.cyan('➜ Vite版本:')} ${c.blue(`${pkg.devDependencies.vite.replace('^', '')}`)}
-${c.cyan('➜ Bun版本:')} ${c.blue(`${pkg.devDependencies}`)}
+${c.cyan('➜ Bun版本:')} ${c.blue(`${Bun.version}`)}
 ${c.dim('— 按下')} ${c.cyan('h + enter')} ${c.dim('显示帮助')}
 ${c.dim('💡 小贴士:')} ${c.italic(c.gray(tips[Math.floor(Math.random() * tips.length)]))}
 ${c.dim('──────────────────────────────')}
