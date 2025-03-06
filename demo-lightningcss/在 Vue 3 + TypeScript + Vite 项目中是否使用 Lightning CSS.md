@@ -50,7 +50,8 @@
 ### **三、在 Vue 3 + Vite 项目中集成 Lightning CSS**
 #### 步骤 1：安装依赖
 ```bash
-# Vite 目前没有 Lightning CSS 的全量配置，强烈推荐 vite-plugin-lightningcss 该插件
+# Vite 目前没有 Lightning CSS 的全量配置，
+# 可以使用 vite-plugin-lightningcss 该插件实现更多配置，但目前在 npm 上周下载量不超过一万
 bun add -D lightningcss vite-plugin-lightningcss
 ```
 
@@ -70,8 +71,14 @@ export default defineConfig({
       browserslist: "> 0.5%, last 2 versions, not dead",
       // 启用 CSS Modules
       cssModules: true,
-      // 其他配置（如 minify、sourceMap）
-      minify: true,
+       // 实验性 CSS 功能草案 (如嵌套语法)
+       drafts: {
+          customMedia: true // @custom-media 规则
+       },
+       // 是否压缩 CSS (生产环境默认: true)
+       minify: process.env.NODE_ENV === "production",
+       // 是否生成 Source Map (默认跟随 Vite 配置)
+       sourceMap: true,
     }),
   ],
 });
