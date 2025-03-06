@@ -78,11 +78,16 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
             const print = server.printUrls;
 
             // 只在项目第一次启动时执行
-            server.printUrls = () => {
+            server.printUrls = async () => {
                 // 在默认的打印之前插入自定打印内容
 
                 // 获取项目信息
-                const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+                // const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+
+                // 使用 Bun.file 读取 package.json
+                const file = Bun.file('package.json',  { encoding: "utf-8" });
+                // 转为 JSON 对象
+                const pkg = await file.json();
 
                 // 使用 figlet 生成 ASCII 艺术字
                 const ascii = figlet.textSync(pkg.name.replace(/-/g,  ' '), {
