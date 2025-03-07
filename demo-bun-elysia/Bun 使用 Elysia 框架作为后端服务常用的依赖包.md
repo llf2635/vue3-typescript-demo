@@ -33,12 +33,13 @@
 ---
 
 ### 三、身份验证与安全
-| **包名**                 | **作用**                         | **安装命令**                     |
-|--------------------------|----------------------------------|---------------------------------|
-| `@elysiajs/jwt`          | JWT 认证插件                    | `bun add @elysiajs/jwt`        |
-| `@elysiajs/bearer`       | Bearer Token 支持               | `bun add @elysiajs/bearer`     |
-| `@elysiajs/cors`         | CORS 跨域配置                   | `bun add @elysiajs/cors`       |
-| `bcrypt`                 | 密码哈希工具                    | `bun add bcrypt`               |
+| **包名**             | **作用**          | **安装命令**                     |
+|--------------------|-----------------|---------------------------------|
+| `@elysiajs/jwt`    | JWT 认证插件        | `bun add @elysiajs/jwt`        |
+| `@elysiajs/bearer` | Bearer Token 支持 | `bun add @elysiajs/bearer`     |
+| `@elysiajs/cors`   | CORS 跨域配置       | `bun add @elysiajs/cors`       |
+| `@elysiajs/cron`   | 定时任务插件          | `bun add @elysiajs/cron`        |
+| `bcrypt`           | 密码哈希工具          | `bun add bcrypt`               |
 
 ---
 

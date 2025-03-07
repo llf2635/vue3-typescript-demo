@@ -1,6 +1,11 @@
-import { Context } from 'elysia'
+import {Context, Elysia} from 'elysia'
+import swagger from "@elysiajs/swagger";
 
-// 存储活跃连接
+// 创建 WebSocket 相关 Elysia 组件/插件实例
+// 关于 WebSocket 的相关配置，参考 https://elysiajs.com/patterns/websocket.html
+
+
+// 存储活跃连接，也就是当前在线的连接数
 const activeConnections = new Set<WebSocket>()
 
 export const wsHandler = {
@@ -35,3 +40,13 @@ function broadcast(message: string) {
         }
     })
 }
+
+export const websocket = new Elysia()
+    // WebSocket 参考 https://elysiajs.com/patterns/websocket.html
+    // 使用 WebSocket 服务，访问 http://localhost:3000/api/ws 在线测试网站 http://wstool.js.org
+    .ws('/ws', {
+        message(ws, message) {
+            ws.send(message)
+        }
+    })
+

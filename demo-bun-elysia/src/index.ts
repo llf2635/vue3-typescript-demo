@@ -6,10 +6,10 @@ import {user} from "./router/user";
 // Elysia 关键核心概念 https://elysiajs.com/key-concept.html
 // 在 Elysia 中，一切都是一个组件，每个 Elysia 实例都是一个组件。它可以是 a router, a store, a service, or anything else. 它可以是路由、中间件、控制器、插件等。
 // 这迫使您将应用程序分解成小块，从而轻松添加或删除功能。
-// 默认情况下，每个 Elysia 实例中的 event/life-cycle 都是彼此隔离的。
+// 默认情况下，每个 Elysia 实例中的 event/life-cycle 时间循环都是彼此隔离的。
 
 // Elysia 官网 https://elysiajs.com
-// 关于 Elysia 的配置，参考 https://elysiajs.com/patterns/configuration.html#config
+// 关于 Elysia 的内部配置，参考 https://elysiajs.com/patterns/configuration.html#config 例如：添加全局路由前缀 /api
 const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路由前缀 /api
     // 应用 swagger 插件，访问 http://localhost:3000/swagger ，现在需要加上全局路由前缀 /api 访问 http://localhost:3000/api/swagger
     // 可以将 swagger 插件配置单独抽离到单独的文件中，比如 swagger.ts 使他成为一个 Elysia 组件/插件实例，然后在 app.use(swagger()) 中使用它。
@@ -51,7 +51,7 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
     .use(user)
     .use(note)
     .get('/test', () => ({ name: 'Elysia' }))
-    //
+    // WebSocket 参考 https://elysiajs.com/patterns/websocket.html
     // 使用 WebSocket 服务，访问 http://localhost:3000/api/ws 在线测试网站 http://wstool.js.org
     .ws('/ws', {
         message(ws, message) {
@@ -59,6 +59,10 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
         }
     })
     .listen(3000)
+
+// 处理程序是一个响应每个路由请求的功能。接受请求信息并向客户返回响应。
+// 另外，在其他框架中，处理程序也被称为控制器。 https://elysiajs.com/essential/handler.html#context
+
 
 // bun add -D picocolors figlet @types/figlet
 import c from "picocolors";
