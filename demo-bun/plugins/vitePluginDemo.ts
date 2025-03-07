@@ -1,7 +1,6 @@
 // Vite 默认内置了 picocolors，用于在终端中打印彩色日志、控制台 ASCII 艺术字输出等
 // plugins/consoleArt.ts (Bun 适配版)
 import type {Plugin, ResolvedConfig, ViteDevServer} from 'vite'
-import * as fs from "node:fs";
 import c from "picocolors";
 // bun add -D figlet @types/figlet
 import figlet from 'figlet'
@@ -84,10 +83,8 @@ export default function consoleArt(options?: ConsoleArtOptions): Plugin {
                 // 获取项目信息
                 // const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
-                // 使用 Bun.file 读取 package.json
-                const file = Bun.file('package.json',  { encoding: "utf-8" });
-                // 转为 JSON 对象
-                const pkg = await file.json();
+                // 使用 Bun.file 读取 package.json 并转为 JSON 对象
+                const pkg = await Bun.file('package.json',  { encoding: "utf-8" }).json();
 
                 // 使用 figlet 生成 ASCII 艺术字
                 const ascii = figlet.textSync(pkg.name.replace(/-/g,  ' '), {

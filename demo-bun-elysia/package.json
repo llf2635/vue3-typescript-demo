@@ -1,6 +1,11 @@
 {
   "name": "demo-bun-elysia",
   "version": "1.0.50",
+  "author": {
+    "name": "龙茶清欢",
+    "email": "2320391937@qq.com",
+    "url": "https://github.com/elysiajs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts"
@@ -10,7 +15,10 @@
     "elysia": "latest"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/figlet": "^1.7.0",
+    "bun-types": "latest",
+    "figlet": "^1.8.0",
+    "picocolors": "^1.1.1"
   },
   "module": "src/index.js"
 }
