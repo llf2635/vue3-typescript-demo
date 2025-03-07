@@ -50,7 +50,6 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
     })
     .use(user)
     .use(note)
-    .get('/', 'Hello Elysia')
     .get('/test', () => ({ name: 'Elysia' }))
     .listen(3000)
 
@@ -88,7 +87,6 @@ async function artPrint() {
 
     // 打印项目基础信息
     console.log(`${c.bold('🚀 项目已启动!')}`)
-    console.log(`${c.green('🦊 Elysia is running at ➜ 本地:')} ${c.underline(`http://${app.server?.hostname}:${app.server?.port}`)}`,)
     console.log(`${c.dim('──────────────────────────────')}`)
     console.log(`${c.green('➜ 项目名称:')} ${pkg.name}     ${c.green('➜ 版本:')} ${pkg.version}`)
     console.log(`${c.cyan('➜ Figlet版本:')} ${c.blue(`${pkg.devDependencies.figlet.replace('^', '')}`)}`)
@@ -96,7 +94,6 @@ async function artPrint() {
     console.log(`${c.cyan('➜ Bun运行时版本:')} ${c.blue(`${Bun.version}`)}`)
     console.log(`${c.dim('💡 小贴士:')} ${c.italic(c.gray(tips[Math.floor(Math.random() * tips.length)]))}`)
     console.log(`${c.dim('──────────────────────────────')}`)
-
 
     // 打印项目依赖
     console.log(`${c.bold('📦 项目依赖:')} ${blank}`)
@@ -123,5 +120,7 @@ async function artPrint() {
     console.log(`${c.dim('──────────────────────────────')}`)
 }
 
-artPrint()
+artPrint().then(success => {
+    console.log(`${c.green('🦊 Elysia 正在运行 ➜ 本地:')} ${c.underline(`http://${app.server?.hostname}:${app.server?.port}${app.config.prefix}`)} \n`)
+}).catch(error => { console.error(error) })
 
