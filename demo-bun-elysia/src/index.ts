@@ -51,6 +51,13 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
     .use(user)
     .use(note)
     .get('/test', () => ({ name: 'Elysia' }))
+    //
+    // 使用 WebSocket 服务，访问 http://localhost:3000/api/ws 在线测试网站 http://wstool.js.org
+    .ws('/ws', {
+        message(ws, message) {
+            ws.send(message)
+        }
+    })
     .listen(3000)
 
 // bun add -D picocolors figlet @types/figlet
@@ -122,5 +129,7 @@ async function artPrint() {
 
 artPrint().then(success => {
     console.log(`${c.green('🦊 Elysia 正在运行 ➜ 本地:')} ${c.underline(`http://${app.server?.hostname}:${app.server?.port}${app.config.prefix}`)} \n`)
+    console.log(`🦊 HTTP 服务运行在 http://${app.server?.hostname}:${app.server?.port}${app.config.prefix}`)
+    console.log(`🦊 WebSocket 服务运行在 ws://${app.server?.hostname}:${app.server?.port}/ws`)
 }).catch(error => { console.error(error) })
 
