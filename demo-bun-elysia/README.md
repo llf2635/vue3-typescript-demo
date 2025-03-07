@@ -13,4 +13,10 @@ bun add @elysiajs/server-timing
 bun add @elysiajs/static
 bun add @elysiajs/swagger
 
-社区插件
+
+Drizzle ORM 官网 https://orm.drizzle.team
+bun add drizzle-orm pg
+bun add -D drizzle-kit @types/pg
+
+bun add drizzle-orm pg dotenv
+bun add -D drizzle-kit tsx @types/pg
