@@ -10,7 +10,7 @@ import {user} from "./router/user";
 
 // Elysia 官网 https://elysiajs.com
 // 关于 Elysia 的内部配置，参考 https://elysiajs.com/patterns/configuration.html#config 例如：添加全局路由前缀 /api
-const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路由前缀 /api
+const app = new Elysia()  // 在这里添加了一个全局路由前缀 /api
     // 应用 swagger 插件，访问 http://localhost:3000/swagger ，现在需要加上全局路由前缀 /api 访问 http://localhost:3000/api/swagger
     // 可以将 swagger 插件配置单独抽离到单独的文件中，比如 swagger.ts 使他成为一个 Elysia 组件/插件实例，然后在 app.use(swagger()) 中使用它。
     .use(swagger({
@@ -48,16 +48,8 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
         if (code === 'NOT_FOUND') return
         console.error(error)
     })
-    .use(user)
-    .use(note)
-    .get('/test', () => ({ name: 'Elysia' }))
-    // WebSocket 参考 https://elysiajs.com/patterns/websocket.html
-    // 使用 WebSocket 服务，访问 http://localhost:3000/api/ws 在线测试网站 http://wstool.js.org
-    .ws('/ws', {
-        message(ws, message) {
-            ws.send(message)
-        }
-    })
+    .use(httpRouter)
+    .use(websocketRouter)
     .listen(3000)
 
 // 处理程序是一个响应每个路由请求的功能。接受请求信息并向客户返回响应。
@@ -67,6 +59,8 @@ const app = new Elysia({ prefix: '/api' })  // 在这里添加了一个全局路
 // bun add -D picocolors figlet @types/figlet
 import c from "picocolors";
 import figlet from 'figlet'
+import {httpRouter} from "@/http";
+import {websocketRouter} from "@/websocket";
 
 async function artPrint() {
     // 小贴士
