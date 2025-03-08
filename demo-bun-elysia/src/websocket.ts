@@ -63,9 +63,6 @@ export const websocketRouter = new Elysia()
             console.log(activeConnections.size)
         },
     })
-    .onStart(({ server }) => {
-        console.log(`🦊 WebSocket 服务运行在 ws://${server?.hostname}:${server?.port}/ws`)
-    })
 
 
 
