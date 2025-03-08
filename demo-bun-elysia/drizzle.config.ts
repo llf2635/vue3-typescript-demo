@@ -9,6 +9,6 @@ export default defineConfig({
     schema: './src/db/schema',
     dialect: 'postgresql', // 'mysql' | 'sqlite' | 'turso'
     dbCredentials: {
-        url: process.env.DATABASE_URL!,
+        url: process.env.DATABASE_PGSQL_URL!,
     },
 });

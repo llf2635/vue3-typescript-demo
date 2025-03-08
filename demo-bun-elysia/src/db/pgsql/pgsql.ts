@@ -9,7 +9,7 @@ import {users} from "@/db/pgsql/schema/users";
 const client = new SQL({
     // 必需
     // url: "postgres://user:pass@localhost:5432/dbname",
-    url: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_PGSQL_URL!,
 
     // 默认连接池设置，参考 https://bun.sh/docs/api/sql#connection-pooling
     // Bun的SQL客户端自动管理一个连接池，一般无需自己配置这些内容
