@@ -19,3 +19,6 @@ export const httpRouter = new Elysia({ prefix: '/api' })    // 在这里添加�
         // 这里可以触发 WebSocket 广播
         return { success: true }
     })
+    .onStart(({ server }) => {
+        console.log(`🦊 HTTP 服务运行在 http://${server?.hostname}:${server?.port}${httpRouter.config.prefix}`)
+    })

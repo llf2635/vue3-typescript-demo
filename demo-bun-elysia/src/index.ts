@@ -11,6 +11,16 @@ import {user} from "./router/user";
 // Elysia 官网 https://elysiajs.com
 // 关于 Elysia 的内部配置，参考 https://elysiajs.com/patterns/configuration.html#config 例如：添加全局路由前缀 /api
 const app = new Elysia()  // 在这里添加了一个全局路由前缀 /api
+    // 错误处理，参考 https://elysiajs.com/tutorial.html#error-handling
+    // API 最重要的方面之一是确保没有问题，如果出错，我们需要正确处理它。
+    // 我们使用 onError 生命周期来捕获服务器中抛出的任何错误。
+    // 请注意，onError 是在 use（note） 之前使用的。这很重要，因为 Elysia 从上到下应用该方法。侦听器必须在路由之前应用。
+    // 由于 onError 应用于根实例，因此它不需要定义范围，因为它将应用于所有子实例。
+    .onError(({ error, code }) => {
+        // 我们添加了一个错误侦听器，它将捕获服务器中引发的任何错误（不包括 404 Not Found）并将其记录到控制台。
+        if (code === 'NOT_FOUND') return
+        console.error(error)
+    })
     // 应用 swagger 插件，访问 http://localhost:3000/swagger ，现在需要加上全局路由前缀 /api 访问 http://localhost:3000/api/swagger
     // 可以将 swagger 插件配置单独抽离到单独的文件中，比如 swagger.ts 使他成为一个 Elysia 组件/插件实例，然后在 app.use(swagger()) 中使用它。
     .use(swagger({
@@ -38,16 +48,6 @@ const app = new Elysia()  // 在这里添加了一个全局路由前缀 /api
         // Version to use for swagger cdn bundle
         // version: '1.0.0',
     }))
-    // 错误处理，参考 https://elysiajs.com/tutorial.html#error-handling
-    // API 最重要的方面之一是确保没有问题，如果出错，我们需要正确处理它。
-    // 我们使用 onError 生命周期来捕获服务器中抛出的任何错误。
-    // 请注意，onError 是在 use（note） 之前使用的。这很重要，因为 Elysia 从上到下应用该方法。侦听器必须在路由之前应用。
-    // 由于 onError 应用于根实例，因此它不需要定义范围，因为它将应用于所有子实例。
-    .onError(({ error, code }) => {
-        // 我们添加了一个错误侦听器，它将捕获服务器中引发的任何错误（不包括 404 Not Found）并将其记录到控制台。
-        if (code === 'NOT_FOUND') return
-        console.error(error)
-    })
     .use(httpRouter)
     .use(websocketRouter)
     .listen(3000)
