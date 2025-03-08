@@ -18,7 +18,7 @@ export const getUserId = new Elysia()
 
 // Authentication 认证，参考 https://elysiajs.com/tutorial.html#authentication
 // 现在我们可能想要为我们的路由添加限制，这样只有 note 的所有者才能更新或删除它。
-// 我们创建一个 user.ts 文件来处理用户身份验证，并使用 /sign-up 和 /sign-in 路由来处理用户注册和登录。
+// 我们创建一个 users.ts 文件来处理用户身份验证，并使用 /sign-up 和 /sign-in 路由来处理用户注册和登录。
 export const user = new Elysia({ prefix: '/user' })
     .use(getUserId)
     // 在 /sign-up 中，我们插入一个用户名和带有 argon2id 的哈希密码

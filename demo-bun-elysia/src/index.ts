@@ -4,7 +4,7 @@ import {note} from "./router/note";
 import {user} from "./router/user";
 
 // Elysia 关键核心概念 https://elysiajs.com/key-concept.html
-// 在 Elysia 中，一切都是一个组件，每个 Elysia 实例都是一个组件。它可以是 a router, a store, a service, or anything else. 它可以是路由、中间件、控制器、插件等。
+// 在 Elysia 中，一切都是一个组件，// 每个 Elysia 实例都是一个组件。组件是一个可以插入其他实例的插件。它可以是 router/路由器、store/存储、service/服务或其他任何东西。https://elysiajs.com/key-concept.html
 // 这迫使您将应用程序分解成小块，从而轻松添加或删除功能。
 // 默认情况下，每个 Elysia 实例中的 event/life-cycle 时间循环都是彼此隔离的。
 
