@@ -14,7 +14,6 @@ export const artConsole = new Elysia()
         }).catch(error => { console.error(error) })
     })
 
-
 async function artPrint() {
     // 小贴士
     const tips = [
