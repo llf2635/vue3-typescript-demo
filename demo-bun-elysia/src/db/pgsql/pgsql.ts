@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
 import { SQL } from "bun";
+import {users} from "@/db/pgsql/schema/users";
 
 // Bun的SQL客户端自动管理一个连接池，这是一个用于多个查询的数据库连接池。
 // 这有助于减少为每个查询建立和关闭连接的开销，也有助于管理与数据库的并发连接数量。
@@ -42,4 +43,5 @@ const client = new SQL({
 // const client = new SQL(process.env.DATABASE_URL!);
 const db = drizzle({ client });
 
-const result = await db.select().from(...);
+const result = await db.select().from(users);
+console.log(result)
