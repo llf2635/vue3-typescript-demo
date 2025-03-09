@@ -13,6 +13,10 @@ export const httpRouter = new Elysia({ prefix: '/api' })    // 在这里添加�
     // Elysia 路由接受值和函数作为响应。参考 https://elysia.zhcndoc.com/tutorial.html#%E8%B7%AF%E7%94%B1
     .get('/demo', 'demo')
     .get('/', () => '欢迎访问实时服务')
+    // 可以使用函数来访问上下文 (Context)（路由和实例信息）例如：path、body、query、params、headers、cookies、session、store、request、response、context、error、next 等
+    // 同时，我们又可以从这些内容中解构出我们需要的内容，例如 { body: { username, password } 这里存在两次解构，一次是从上下文 (Context) 中解构出 body，一次是从 body 中解构出 username 和 password
+    // 此处，我们使用它来获取当前路由的路径。返回 /api/test
+    .get('/test', ({ path }) => path)
     .get('/data', () => ({
         timestamp: Date.now(),
         message: '来自 HTTP 接口的数据'
