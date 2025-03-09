@@ -10,6 +10,8 @@ import {note} from "@/router/note";
 export const httpRouter = new Elysia({ prefix: '/api' })    // 在这里添加了一个全局路由前缀 /api
     .use(user)
     .use(note)
+    // Elysia 路由接受值和函数作为响应。参考 https://elysia.zhcndoc.com/tutorial.html#%E8%B7%AF%E7%94%B1
+    .get('/demo', 'demo')
     .get('/', () => '欢迎访问实时服务')
     .get('/data', () => ({
         timestamp: Date.now(),

@@ -1,7 +1,7 @@
 import {Elysia} from "elysia";
 import swagger from "@elysiajs/swagger";
 
-export const swaggerComponent = new Elysia()
+export const swaggerService = new Elysia({ name: 'swagger/service' })
     // 应用 swagger 插件，访问 http://localhost:3000/swagger ，现在需要加上全局路由前缀 /api 访问 http://localhost:3000/api/swagger
     // 可以将 swagger 插件配置单独抽离到单独的文件中，比如 swagger.ts 使他成为一个 Elysia 组件/插件实例，然后在 app.use(swagger()) 中使用它。
     .use(swagger({
@@ -29,4 +29,3 @@ export const swaggerComponent = new Elysia()
         // Version to use for swagger cdn bundle
         // version: '1.0.0',
     }))
-    .as("plugin")
