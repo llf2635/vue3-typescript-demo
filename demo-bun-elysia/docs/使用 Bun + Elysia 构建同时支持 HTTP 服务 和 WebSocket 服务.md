@@ -7,8 +7,8 @@
 bun-backend/
 ├── src/
 │   ├── index.ts         # 主入口
-│   ├── http.ts          # HTTP 路由
-│   └── websocket.ts     # WebSocket 逻辑
+│   ├── index.ts          # HTTP 路由
+│   └── index.ts     # WebSocket 逻辑
 ├── package.json
 └── tsconfig.json
 ```
@@ -50,7 +50,7 @@ app.listen(3000, () => {
 })
 ```
 
-#### 2. HTTP 路由 (`src/http.ts`)
+#### 2. HTTP 路由 (`src/index.ts`)
 ```typescript
 import { Elysia } from 'elysia'
 
@@ -66,7 +66,7 @@ export const httpRoutes = new Elysia()
   })
 ```
 
-#### 3. WebSocket 处理器 (`src/websocket.ts`)
+#### 3. WebSocket 处理器 (`src/index.ts`)
 ```typescript
 import { Context } from 'elysia'
 
@@ -153,7 +153,7 @@ http://wstool.js.org
 ### 六、进阶功能扩展
 
 #### 1. 结合 HTTP 接口触发 WebSocket 广播
-修改 `http.ts`：
+修改 `index.ts`：
 ```typescript
 import { broadcast } from './websocket'
 
@@ -164,7 +164,7 @@ import { broadcast } from './websocket'
 ```
 
 #### 2. 心跳检测
-在 `websocket.ts` 中增加：
+在 `index.ts` 中增加：
 ```typescript
 setInterval(() => {
   activeConnections.forEach(ws => {

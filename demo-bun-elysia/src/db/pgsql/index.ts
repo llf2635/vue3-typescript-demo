@@ -18,19 +18,6 @@ const client = new SQL({
     maxLifetime: 3600, // 连接生存期（以秒为单位）（0 = 永远）
     connectionTimeout: 10, // 建立新连接时超时
 
-    // SSL/TLS 选项
-    tls: false,
-    // tls: {
-    //   rejectUnauthorized: true,
-    //   requestCert: true,
-    //   ca: "path/to/ca.pem",
-    //   key: "path/to/key.pem",
-    //   cert: "path/to/cert.pem",
-    //   checkServerIdentity(hostname, cert) {
-    //     ...
-    //   },
-    // },
-
     // 回调
     onconnect: client => {
         console.log("已连接到数据库");

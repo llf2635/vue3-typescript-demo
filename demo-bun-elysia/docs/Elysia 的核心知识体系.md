@@ -391,16 +391,17 @@ app.get('/users', async () => {
 
 ### 二十、部署指南
 #### 1. Docker 部署
+
 ```dockerfile
 # Dockerfile
 FROM oven/bun:1.1.8
 
 WORKDIR /app
-COPY package.json .
+COPY ../package.json .
 COPY bun.lockb .
 RUN bun install
 
-COPY . .
+COPY .. .
 RUN bun build --compile src/index.ts
 
 CMD ["./index"]

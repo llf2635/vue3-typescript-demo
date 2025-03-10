@@ -33,7 +33,7 @@ bun add -D drizzle-kit
 然后配置如下：
 
 ```typescript
-// src/db/pgsql.ts
+// src/db/index.ts
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
 
@@ -44,7 +44,7 @@ const result = await db.select().from(...);
 ```
 推荐使用 Bun 提供的驱动，如果您需要提供您现有的驱动程序：参考 https://orm.drizzle.team/docs/connect-bun-sql
 ```typescript
-// src/db/pgsql.ts
+// src/db/index.ts
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
 import { SQL } from "bun";

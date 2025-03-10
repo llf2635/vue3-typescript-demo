@@ -46,7 +46,7 @@ REDIS_PORT=6379
 ### 二、MySQL 集成
 #### 1. 连接配置与模型定义
 ```typescript
-// src/db/mysql.ts
+// src/db/index.ts
 import { drizzle } from 'drizzle-orm/mysql2'
 import mysql from 'mysql2/promise'
 import { users } from './schema'

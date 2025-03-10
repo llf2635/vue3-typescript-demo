@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
-import {user} from "@/router/user";
-import {note} from "@/router/note";
+import {user} from "@/http/router/user";
+import {note} from "@/http/router/note";
 
 // 创建 HTTP 路由，所有的其他 Elysia 路由组件都将在这里注册，然后将本组件挂载到 app 上
 // Elysia 官网 https://elysiajs.com

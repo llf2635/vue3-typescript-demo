@@ -14,3 +14,7 @@ const db = drizzle({ client });
 
 // bunx drizzle-kit generate:mysql  # 根据数据库类型替换为 pg/sqlite
 // bunx drizzle-kit migrate:up
+
+// 对于 pg 和 sqlite，采用 bun 官方的内置驱动，只有 mysql 需要安装 mysql2 作为驱动
+// bun add drizzle-orm mysql2 dotenv
+// bun add -D drizzle-kit
