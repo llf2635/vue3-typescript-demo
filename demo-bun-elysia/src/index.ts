@@ -1,6 +1,6 @@
 import {Elysia, t} from "elysia";
-import {httpRouter} from "@/http";
-import {websocketRouter} from "@/websocket";
+import {httpServer} from "@/http";
+import {wsServer} from "@/websocket";
 import {artConsole} from "@/plugins/artConsole";
 import swagger from "@elysiajs/swagger";
 import {db} from "@/db";
@@ -22,6 +22,6 @@ const app = new Elysia()
         },
     }))
     .use(artConsole)
-    .use(httpRouter)
-    .use(websocketRouter)
+    .use(httpServer)
+    .use(wsServer)
     .listen(3000);

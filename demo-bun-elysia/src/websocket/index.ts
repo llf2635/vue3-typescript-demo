@@ -1,6 +1,4 @@
-import {Context, Elysia} from 'elysia'
-import swagger from "@elysiajs/swagger";
-import {ServerWebSocket} from "elysia/ws/bun";
+import {Elysia} from 'elysia'
 
 // 创建 WebSocket 相关 Elysia 组件/插件实例
 // 关于 WebSocket 的相关配置，参考 https://elysiajs.com/patterns/websocket.html
@@ -42,7 +40,7 @@ function broadcast(message: string) {
     })
 }
 
-export const websocketRouter = new Elysia()
+export const wsServer = new Elysia()
     // WebSocket 参考 https://elysiajs.com/patterns/websocket.html
     // 使用 WebSocket 服务，访问 ws://localhost:3000/ws 在线测试网站 http://wstool.js.org
     .ws('/ws', {
