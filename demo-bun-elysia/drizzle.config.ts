@@ -18,5 +18,16 @@ export default defineConfig({
     }
 });
 
+// 对于 sqlite，采用 bun 官方的内置驱动，只有 mysql 和 pgsql 需要安装 mysql2 和 pg 作为驱动
+// bun add drizzle-orm mysql2 pg dotenv
+// bun add -D drizzle-kit
+
 // 如果运行 bun run drizzle-kit generate 时没有使用 --config 手动指定配置文件，则默认会寻找 ./drizzle.config.ts 文件
 // bun run drizzle-kit generate --config=./your-custom.config.ts
+
+// bun run drizzle-kit help      这个命令会列出所有drizzle-kit支持的命令
+// bun run drizzle-kit push     如果数据库和表都还没有创建，那么可以push一下，这会基于 schema.ts 创建数据库和表，此外当我们修改schema.ts文件后，也可以push一下，这会基于schema.ts更新数据库和表结构。
+// bun run drizzle-kit generate     根据schema.ts生成迁移SQL文件，
+// bun run drizzle-kit migrate       运行迁移SQL文件，将数据库表结构更新到最新。
+// bun run drizzle-kit pull     如果数据库和表已经创建好了，那么可以pull一下，把表结构拉到本地生成schema.ts文件
+// bun run drizzle-kit studio     运行一个可视化工具，可以查看数据库表结构，以及执行SQL语句。   需要安装 brew install mkcert    mkcert -install
