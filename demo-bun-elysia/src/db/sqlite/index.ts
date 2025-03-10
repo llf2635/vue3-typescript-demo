@@ -1,56 +1,10 @@
 // 在SQLite中，没有 Schema模式的概念，因此您只能在单个SQLite文件上下文中定义表
-// 参考 https://bun.sh/docs/api/sql#connection-pooling
+// 参考 Bun 官方文档 https://bun.sh/docs/api/sqlite
+// 参考 https://drizzle.zhcndoc.com/docs/get-started/bun-sqlite-new
+import 'dotenv/config';
+import { drizzle } from 'drizzle-orm/bun-sqlite';
+import { Database } from 'bun:sqlite';
 
-import { sqliteTable as table } from "drizzle-orm/sqlite-core";
-import * as t from "drizzle-orm/sqlite-core";
-import { AnySQLiteColumn } from "drizzle-orm/sqlite-core";
+const sqlite = new Database(process.env.DB_FILE_NAME!);
+export const db = drizzle({ client: sqlite });
 
-export const users = table(
-    "users",
-    {
-        id: t.int().primaryKey({ autoIncrement: true }),
-        firstName: t.text("first_name"),
-        lastName: t.text("last_name"),
-        email: t.text().notNull(),
-        invitee: t.int().references((): AnySQLiteColumn => users.id),
-        role: t.text().$type<"guest" | "user" | "admin">().default("guest"),
-    },
-    (table) => [
-        t.uniqueIndex("email_idx").on(table.email)
-    ]
-);
-
-export const posts = table(
-    "posts",
-    {
-        id: t.int().primaryKey({ autoIncrement: true }),
-        slug: t.text().$default(() => generateUniqueString(16)),
-        title: t.text(),
-        ownerId: t.int("owner_id").references(() => users.id),
-    },
-    (table) => [
-        t.uniqueIndex("slug_idx").on(table.slug),
-        t.index("title_idx").on(table.title),
-    ]
-);
-
-export const comments = table("comments", {
-    id: t.int().primaryKey({ autoIncrement: true }),
-    text: t.text({ length: 256 }),
-    postId: t.int("post_id").references(() => posts.id),
-    ownerId: t.int("owner_id").references(() => users.id),
-});
-
-
-function generateUniqueString(length: number = 12): string {
-    const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let uniqueString = "";
-
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        uniqueString += characters[randomIndex];
-    }
-
-    return uniqueString;
-}
