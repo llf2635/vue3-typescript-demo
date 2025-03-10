@@ -3,6 +3,7 @@ import {httpRouter} from "@/http";
 import {websocketRouter} from "@/websocket";
 import {artConsole} from "@/plugins/artConsole";
 import swagger from "@elysiajs/swagger";
+import {db} from "@/db";
 
 const app = new Elysia()
     .decorate('db', db) // 将数据库实例注入到 Elysia 上下文中
