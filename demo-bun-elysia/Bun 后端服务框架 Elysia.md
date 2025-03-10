@@ -67,8 +67,9 @@ app.use(swagger({
 
 #### 步骤 1：安装
 ```bash
-bun create elysia demo-bun-elysia && cd demo-bun-elysia
+bun create elysia bun-elysia && cd bun-elysia
 bun install
+bun run dev
 ```
  
 #### 步骤 2：基础服务器

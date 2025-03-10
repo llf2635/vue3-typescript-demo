@@ -1,6 +1,7 @@
 // import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 
+
 // 配置参考 https://orm.drizzle.team/docs/sql-schema-declaration
 export default defineConfig({
     out: './drizzle',

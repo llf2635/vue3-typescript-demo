@@ -6,12 +6,12 @@
 #### 1. 安装依赖
 ```bash
 # MySQL
-bun add mysql2 drizzle-orm
+bun add drizzle-orm mysql2 dotenv
 bun add -d drizzle-kit @types/mysql2
 
 # PostgreSQL
-bun add pg drizzle-orm
-bun add -d @types/pg
+bun add drizzle-orm pg dotenv
+bun add -D drizzle-kit @types/pg
 
 # Redis
 bun add ioredis
