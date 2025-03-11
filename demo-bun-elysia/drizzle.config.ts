@@ -36,3 +36,6 @@ export default defineConfig({
 // bun run drizzle-kit migrate       运行迁移SQL文件，将数据库表结构更新到最新。
 // bun run drizzle-kit pull     如果数据库和表已经创建好了，那么可以pull一下，把表结构拉到本地生成schema.ts文件
 // bun run drizzle-kit studio     运行一个可视化工具，可以查看数据库表结构，以及执行SQL语句。   需要安装 brew install mkcert    mkcert -install
+
+// push：直接修改数据库结构（适合开发环境）。
+// generate + migrate：生成迁移文件（适合生产环境）。
