@@ -13,13 +13,14 @@ export default defineConfig({
     out: `./drizzle/migrations/${dialect}`, // 按数据库类型分目录
     schema: `./src/db/${dialect}/schema.ts`, // 指向各数据库专用 schema
     dialect: dialect,
+    // casing: "snake_case",   // 默认为 camelCase，这里改为 snake_case
     dbCredentials: {
         url: process.env.DATABASE_URL!
     }
 });
 
 // 对于 sqlite，采用 bun 官方的内置驱动，只有 mysql 和 pgsql 需要安装 mysql2 和 pg 作为驱动
-// bun add drizzle-orm mysql2 pg dotenv
+// bun add drizzle-orm mysql2 dotenv
 // bun add -D drizzle-kit
 
 // 如果运行 bun run drizzle-kit generate 时没有使用 --config 手动指定配置文件，则默认会寻找 ./drizzle.config.ts 文件

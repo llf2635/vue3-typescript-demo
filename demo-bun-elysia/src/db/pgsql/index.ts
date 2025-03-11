@@ -1,10 +1,11 @@
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
-import { SQL } from "bun";
 import {users} from "@/db/pgsql/schema/users";
 
+// 这样配置无需自己安装 pg 驱动，推荐使用
 const db = drizzle(process.env.DATABASE_URL!);
 
+// 使用这种方式，需自己安装 pg 驱动
 // Bun的SQL客户端自动管理一个连接池，这是一个用于多个查询的数据库连接池。
 // 这有助于减少为每个查询建立和关闭连接的开销，也有助于管理与数据库的并发连接数量。
 // 参考 https://bun.sh/docs/api/sql#connection-pooling
