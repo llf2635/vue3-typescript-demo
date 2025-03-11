@@ -2,8 +2,7 @@
 // 在PostgreSQL中，数据库 Database 和 Schema 两者不是等同的。Database -> Schema -> Table
 // 参考 https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { AnyPgColumn } from "drizzle-orm/pg-core";
-import { pgEnum, pgTable as table } from "drizzle-orm/pg-core";
+import {AnyPgColumn, pgEnum, pgTable as table} from "drizzle-orm/pg-core";
 import * as t from "drizzle-orm/pg-core";
 
 export const rolesEnum = pgEnum("roles", ["guest", "user", "admin"]);

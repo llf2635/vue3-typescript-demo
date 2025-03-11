@@ -3,11 +3,10 @@
 // 在MySQL中，数据库 Database 和 Schema 两者是等同的。Database(Schema) -> Table
 // 参考 https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { mysqlTable as table } from "drizzle-orm/mysql-core";
+import {AnyMySqlColumn, mysqlTable} from "drizzle-orm/mysql-core";
 import * as t from "drizzle-orm/mysql-core";
-import { AnyMySqlColumn } from "drizzle-orm/mysql-core";
 
-export const users = table(
+export const users = mysqlTable(
     "users",
     {
         id: t.int().primaryKey().autoincrement(),
@@ -22,7 +21,7 @@ export const users = table(
     ]
 );
 
-export const posts = table(
+export const posts = mysqlTable(
     "posts",
     {
         id: t.int().primaryKey().autoincrement(),
@@ -36,7 +35,7 @@ export const posts = table(
     ]
 );
 
-export const comments = table("comments", {
+export const comments = mysqlTable("comments", {
     id: t.int().primaryKey().autoincrement(),
     text: t.varchar({ length: 256 }),
     postId: t.int("post_id").references(() => posts.id),
