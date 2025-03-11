@@ -13,6 +13,10 @@ bun add @elysiajs/server-timing
 bun add @elysiajs/static
 bun add @elysiajs/swagger
 
+社区插件
+bun add elysia-rate-limit
+
+
 
 Drizzle ORM 官网 https://orm.drizzle.team
 bun add drizzle-orm pg
