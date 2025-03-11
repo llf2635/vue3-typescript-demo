@@ -19,7 +19,9 @@ export default defineConfig({
     }
 });
 
-// TODO 使用 drizzle-kit 命令时，Drizzle 不会自动创建数据库本身 ，但会根据 schema.ts 自动创建表结构（如果数据库已存在）。
+// TODO 使用 drizzle-kit 命令时，Drizzle 不会自动创建数据库本身 ，但会根据 schema.ts 自动创建表结构（如果数据库已存在）。建议 ：开发环境用 push，生产环境用迁移文件。
+
+
 
 // 对于 sqlite，采用 bun 官方的内置驱动，只有 mysql 和 pgsql 需要安装 mysql2 和 pg 作为驱动
 // bun add drizzle-orm mysql2 dotenv
