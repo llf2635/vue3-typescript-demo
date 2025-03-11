@@ -43,7 +43,12 @@ test("2 * 2", done => {
 
 // 使用 test.timeout 设置超时时间。如果测试运行时间超过这个时间，测试将失败。
 test("wat", async () => {
+    async function slowOperation() {
+        // do something slow
+    }
+
     const data = await slowOperation();
+    // @ts-ignore
     expect(data).toBe(42);
 }, 500); // test must run in <500ms
 

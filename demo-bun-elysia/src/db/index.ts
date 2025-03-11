@@ -3,12 +3,10 @@
 // 参考 Bun 的 SQLite 章节 https://bun.net.cn/docs/api/sqlite
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
-import { SQL } from 'bun';
 import {users} from "@/db/pgsql/schema/users";
 
-const client = new SQL(process.env.DATABASE_URL!);
-// 将 Drizzle ORM 实例化，并传入 Bun 的 SQL 客户端实例，并将最终的 Drizzle ORM 实例返回
-export const db = drizzle({ client });
+// Drizzle ORM 实例化
+export const db = drizzle(process.env.DATABASE_URL!);
 
 const result = await db.select().from(users);
 console.log(result)
