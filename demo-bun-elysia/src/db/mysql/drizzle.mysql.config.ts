@@ -6,6 +6,7 @@ import { defineConfig } from 'drizzle-kit';
 const dialect = process.env.DB_DIALECT as 'postgresql' | 'mysql' | 'sqlite';
 console.log('dialect:', dialect);
 
+// 参考 https://drizzle.zhcndoc.com/docs/get-started/mysql-new
 export default defineConfig({
     out: `./drizzle/migrations/${dialect}`, // 按数据库类型分目录
     schema: `./src/db/${dialect}/schema.ts`, // 指向各数据库专用 schema
