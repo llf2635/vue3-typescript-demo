@@ -19,7 +19,7 @@
     "bun"
   ],
   "scripts": {
-    "dev": "bun run --bun vite",
+    "dev": "bun --bun run vite",
     "build": "vue-tsc -b && bunx --bun vite build",
     "preview": "bunx --bun vite preview"
   },
