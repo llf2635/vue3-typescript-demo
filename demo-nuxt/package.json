@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "bun run --bun nuxt dev",
+    "build": "bunx --bun nuxt build",
+    "start": "bun --bun run nuxt start",
+    "generate": "bun --bun run nuxt generate",
+    "preview": "bun --bun run nuxt preview",
+    "postinstall": "bun --bun run nuxt prepare"
   },
   "dependencies": {
     "nuxt": "^3.16.0",
